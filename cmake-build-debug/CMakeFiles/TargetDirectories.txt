@@ -1,0 +1,3 @@
+/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/CMakeFiles/BALProblem.dir
+/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/CMakeFiles/ParseCmd.dir
+/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/CMakeFiles/ceres_customBundle.dir

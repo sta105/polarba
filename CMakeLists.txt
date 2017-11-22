@@ -1,20 +1,23 @@
-cmake_minimum_required( VERSION 2.8 )
-project( ceres_curve_fitting )
+cmake_minimum_required(VERSION 2.8)
 
-set( CMAKE_BUILD_TYPE "Release" )
-set( CMAKE_CXX_FLAGS "-std=c++11 -O3" )
+project(ceres_customBundle)
 
-# 添加cmake模块以使用ceres库
-list( APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake_modules )
+find_package(Ceres REQUIRED)
 
-# 寻找Ceres库并添加它的头文件
-find_package( Ceres REQUIRED )
-include_directories( ${CERES_INCLUDE_DIRS} )
+include(CheckCXXCompilerFlag)
+CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
+set(CMAKE_BUILD_TYPE "DEBUG")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O3")
 
-# OpenCV
-find_package( OpenCV REQUIRED )
-include_directories( ${OpenCV_DIRS} )
 
-add_executable( curve_fitting main.cpp )
-# 与Ceres和OpenCV链接
-target_link_libraries( curve_fitting ${CERES_LIBRARIES} ${OpenCV_LIBS} )
+include_directories(${CERES_INCLUDE_DIRS} 
+                    ${PROJECT_SOURCE_DIR}/common
+                    ${PROJECT_SOURCE_DIR}/common/tools 
+                    ${PROJECT_SOURCE_DIR}/common/flags)
+
+add_library(BALProblem SHARED ${PROJECT_SOURCE_DIR}/common/BALProblem.cpp)
+add_library(ParseCmd SHARED ${PROJECT_SOURCE_DIR}/common/flags/command_args.cpp)
+
+add_executable(${PROJECT_NAME} ceresBundle.cpp)
+
+target_link_libraries(${PROJECT_NAME} BALProblem ParseCmd ${CERES_LIBRARIES} )
