@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sicong/slambook/ch10/ceres_custombundle
+CMAKE_SOURCE_DIR = /home/sicong/polar_ba
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug
+CMAKE_BINARY_DIR = /home/sicong/polar_ba/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/BALProblem.dir/depend.make
@@ -51,17 +51,17 @@ include CMakeFiles/BALProblem.dir/flags.make
 
 CMakeFiles/BALProblem.dir/common/BALProblem.cpp.o: CMakeFiles/BALProblem.dir/flags.make
 CMakeFiles/BALProblem.dir/common/BALProblem.cpp.o: ../common/BALProblem.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/sicong/polar_ba/cmake-build-debug/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/BALProblem.dir/common/BALProblem.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BALProblem.dir/common/BALProblem.cpp.o -c /home/sicong/slambook/ch10/ceres_custombundle/common/BALProblem.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BALProblem.dir/common/BALProblem.cpp.o -c /home/sicong/polar_ba/common/BALProblem.cpp
 
 CMakeFiles/BALProblem.dir/common/BALProblem.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BALProblem.dir/common/BALProblem.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sicong/slambook/ch10/ceres_custombundle/common/BALProblem.cpp > CMakeFiles/BALProblem.dir/common/BALProblem.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sicong/polar_ba/common/BALProblem.cpp > CMakeFiles/BALProblem.dir/common/BALProblem.cpp.i
 
 CMakeFiles/BALProblem.dir/common/BALProblem.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BALProblem.dir/common/BALProblem.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sicong/slambook/ch10/ceres_custombundle/common/BALProblem.cpp -o CMakeFiles/BALProblem.dir/common/BALProblem.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sicong/polar_ba/common/BALProblem.cpp -o CMakeFiles/BALProblem.dir/common/BALProblem.cpp.s
 
 CMakeFiles/BALProblem.dir/common/BALProblem.cpp.o.requires:
 .PHONY : CMakeFiles/BALProblem.dir/common/BALProblem.cpp.o.requires
@@ -97,6 +97,6 @@ CMakeFiles/BALProblem.dir/clean:
 .PHONY : CMakeFiles/BALProblem.dir/clean
 
 CMakeFiles/BALProblem.dir/depend:
-	cd /home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sicong/slambook/ch10/ceres_custombundle /home/sicong/slambook/ch10/ceres_custombundle /home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug /home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug /home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/CMakeFiles/BALProblem.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/sicong/polar_ba/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sicong/polar_ba /home/sicong/polar_ba /home/sicong/polar_ba/cmake-build-debug /home/sicong/polar_ba/cmake-build-debug /home/sicong/polar_ba/cmake-build-debug/CMakeFiles/BALProblem.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/BALProblem.dir/depend
 

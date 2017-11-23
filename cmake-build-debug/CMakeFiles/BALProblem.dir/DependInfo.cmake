@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/sicong/slambook/ch10/ceres_custombundle/common/BALProblem.cpp" "/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/CMakeFiles/BALProblem.dir/common/BALProblem.cpp.o"
+  "/home/sicong/polar_ba/common/BALProblem.cpp" "/home/sicong/polar_ba/cmake-build-debug/CMakeFiles/BALProblem.dir/common/BALProblem.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

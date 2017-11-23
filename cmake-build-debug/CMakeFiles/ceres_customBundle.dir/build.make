@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sicong/slambook/ch10/ceres_custombundle
+CMAKE_SOURCE_DIR = /home/sicong/polar_ba
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug
+CMAKE_BINARY_DIR = /home/sicong/polar_ba/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/ceres_customBundle.dir/depend.make
@@ -51,17 +51,17 @@ include CMakeFiles/ceres_customBundle.dir/flags.make
 
 CMakeFiles/ceres_customBundle.dir/ceresBundle.cpp.o: CMakeFiles/ceres_customBundle.dir/flags.make
 CMakeFiles/ceres_customBundle.dir/ceresBundle.cpp.o: ../ceresBundle.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/sicong/polar_ba/cmake-build-debug/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ceres_customBundle.dir/ceresBundle.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ceres_customBundle.dir/ceresBundle.cpp.o -c /home/sicong/slambook/ch10/ceres_custombundle/ceresBundle.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ceres_customBundle.dir/ceresBundle.cpp.o -c /home/sicong/polar_ba/ceresBundle.cpp
 
 CMakeFiles/ceres_customBundle.dir/ceresBundle.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ceres_customBundle.dir/ceresBundle.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sicong/slambook/ch10/ceres_custombundle/ceresBundle.cpp > CMakeFiles/ceres_customBundle.dir/ceresBundle.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sicong/polar_ba/ceresBundle.cpp > CMakeFiles/ceres_customBundle.dir/ceresBundle.cpp.i
 
 CMakeFiles/ceres_customBundle.dir/ceresBundle.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ceres_customBundle.dir/ceresBundle.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sicong/slambook/ch10/ceres_custombundle/ceresBundle.cpp -o CMakeFiles/ceres_customBundle.dir/ceresBundle.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sicong/polar_ba/ceresBundle.cpp -o CMakeFiles/ceres_customBundle.dir/ceresBundle.cpp.s
 
 CMakeFiles/ceres_customBundle.dir/ceresBundle.cpp.o.requires:
 .PHONY : CMakeFiles/ceres_customBundle.dir/ceresBundle.cpp.o.requires
@@ -130,6 +130,6 @@ CMakeFiles/ceres_customBundle.dir/clean:
 .PHONY : CMakeFiles/ceres_customBundle.dir/clean
 
 CMakeFiles/ceres_customBundle.dir/depend:
-	cd /home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sicong/slambook/ch10/ceres_custombundle /home/sicong/slambook/ch10/ceres_custombundle /home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug /home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug /home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/CMakeFiles/ceres_customBundle.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/sicong/polar_ba/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sicong/polar_ba /home/sicong/polar_ba /home/sicong/polar_ba/cmake-build-debug /home/sicong/polar_ba/cmake-build-debug /home/sicong/polar_ba/cmake-build-debug/CMakeFiles/ceres_customBundle.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ceres_customBundle.dir/depend
 

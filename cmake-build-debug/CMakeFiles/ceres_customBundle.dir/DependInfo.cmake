@@ -4,14 +4,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/sicong/slambook/ch10/ceres_custombundle/ceresBundle.cpp" "/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/CMakeFiles/ceres_customBundle.dir/ceresBundle.cpp.o"
+  "/home/sicong/polar_ba/ceresBundle.cpp" "/home/sicong/polar_ba/cmake-build-debug/CMakeFiles/ceres_customBundle.dir/ceresBundle.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/CMakeFiles/BALProblem.dir/DependInfo.cmake"
-  "/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/CMakeFiles/ParseCmd.dir/DependInfo.cmake"
+  "/home/sicong/polar_ba/cmake-build-debug/CMakeFiles/BALProblem.dir/DependInfo.cmake"
+  "/home/sicong/polar_ba/cmake-build-debug/CMakeFiles/ParseCmd.dir/DependInfo.cmake"
   )
 
 # The include file search paths:

@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sicong/slambook/ch10/ceres_custombundle
+CMAKE_SOURCE_DIR = /home/sicong/polar_ba
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug
+CMAKE_BINARY_DIR = /home/sicong/polar_ba/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/ParseCmd.dir/depend.make
@@ -51,17 +51,17 @@ include CMakeFiles/ParseCmd.dir/flags.make
 
 CMakeFiles/ParseCmd.dir/common/flags/command_args.cpp.o: CMakeFiles/ParseCmd.dir/flags.make
 CMakeFiles/ParseCmd.dir/common/flags/command_args.cpp.o: ../common/flags/command_args.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/sicong/polar_ba/cmake-build-debug/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ParseCmd.dir/common/flags/command_args.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ParseCmd.dir/common/flags/command_args.cpp.o -c /home/sicong/slambook/ch10/ceres_custombundle/common/flags/command_args.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ParseCmd.dir/common/flags/command_args.cpp.o -c /home/sicong/polar_ba/common/flags/command_args.cpp
 
 CMakeFiles/ParseCmd.dir/common/flags/command_args.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ParseCmd.dir/common/flags/command_args.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sicong/slambook/ch10/ceres_custombundle/common/flags/command_args.cpp > CMakeFiles/ParseCmd.dir/common/flags/command_args.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sicong/polar_ba/common/flags/command_args.cpp > CMakeFiles/ParseCmd.dir/common/flags/command_args.cpp.i
 
 CMakeFiles/ParseCmd.dir/common/flags/command_args.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ParseCmd.dir/common/flags/command_args.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sicong/slambook/ch10/ceres_custombundle/common/flags/command_args.cpp -o CMakeFiles/ParseCmd.dir/common/flags/command_args.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sicong/polar_ba/common/flags/command_args.cpp -o CMakeFiles/ParseCmd.dir/common/flags/command_args.cpp.s
 
 CMakeFiles/ParseCmd.dir/common/flags/command_args.cpp.o.requires:
 .PHONY : CMakeFiles/ParseCmd.dir/common/flags/command_args.cpp.o.requires
@@ -97,6 +97,6 @@ CMakeFiles/ParseCmd.dir/clean:
 .PHONY : CMakeFiles/ParseCmd.dir/clean
 
 CMakeFiles/ParseCmd.dir/depend:
-	cd /home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sicong/slambook/ch10/ceres_custombundle /home/sicong/slambook/ch10/ceres_custombundle /home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug /home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug /home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/CMakeFiles/ParseCmd.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/sicong/polar_ba/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sicong/polar_ba /home/sicong/polar_ba /home/sicong/polar_ba/cmake-build-debug /home/sicong/polar_ba/cmake-build-debug /home/sicong/polar_ba/cmake-build-debug/CMakeFiles/ParseCmd.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ParseCmd.dir/depend
 

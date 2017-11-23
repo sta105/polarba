@@ -5,28 +5,28 @@
       <Option title="ceres_customBundle" />
       <Option makefile_is_custom="1" />
       <Option compiler="gcc" />
-      <Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\Ceres\;" />
+      <Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\usr\;CMake Files\..\..\..\usr\local\;CMake Files\..\..\..\usr\local\lib\;CMake Files\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\usr\local\lib\cmake\Ceres\;" />
       <Build>
       <Target title="all">
-         <Option working_dir="/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug" />
+         <Option working_dir="/home/sicong/polar_ba/cmake-build-debug" />
          <Option type="4" />
          <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 all" />
-            <CompileFile command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
+            <Build command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
          </MakeCommands>
       </Target>
       <Target title="BALProblem">
-         <Option output="/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/libBALProblem.so" prefix_auto="0" extension_auto="0" />
-         <Option working_dir="/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug" />
+         <Option output="/home/sicong/polar_ba/cmake-build-debug/libBALProblem.so" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/sicong/polar_ba/cmake-build-debug" />
          <Option object_output="./" />
          <Option type="3" />
          <Option compiler="gcc" />
          <Compiler>
-            <Add directory="/home/sicong/slambook/ch10/ceres_custombundle/common" />
-            <Add directory="/home/sicong/slambook/ch10/ceres_custombundle/common/flags" />
-            <Add directory="/home/sicong/slambook/ch10/ceres_custombundle/common/tools" />
+            <Add directory="/home/sicong/polar_ba/common" />
+            <Add directory="/home/sicong/polar_ba/common/flags" />
+            <Add directory="/home/sicong/polar_ba/common/tools" />
             <Add directory="/usr/include" />
             <Add directory="/usr/include/c++/4.8" />
             <Add directory="/usr/include/c++/4.8/backward" />
@@ -38,22 +38,22 @@
             <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 BALProblem" />
-            <CompileFile command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
+            <Build command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 BALProblem" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
          </MakeCommands>
       </Target>
       <Target title="BALProblem/fast">
-         <Option output="/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/libBALProblem.so" prefix_auto="0" extension_auto="0" />
-         <Option working_dir="/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug" />
+         <Option output="/home/sicong/polar_ba/cmake-build-debug/libBALProblem.so" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/sicong/polar_ba/cmake-build-debug" />
          <Option object_output="./" />
          <Option type="3" />
          <Option compiler="gcc" />
          <Compiler>
-            <Add directory="/home/sicong/slambook/ch10/ceres_custombundle/common" />
-            <Add directory="/home/sicong/slambook/ch10/ceres_custombundle/common/flags" />
-            <Add directory="/home/sicong/slambook/ch10/ceres_custombundle/common/tools" />
+            <Add directory="/home/sicong/polar_ba/common" />
+            <Add directory="/home/sicong/polar_ba/common/flags" />
+            <Add directory="/home/sicong/polar_ba/common/tools" />
             <Add directory="/usr/include" />
             <Add directory="/usr/include/c++/4.8" />
             <Add directory="/usr/include/c++/4.8/backward" />
@@ -65,22 +65,22 @@
             <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 BALProblem/fast" />
-            <CompileFile command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
+            <Build command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 BALProblem/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
          </MakeCommands>
       </Target>
       <Target title="ParseCmd">
-         <Option output="/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/libParseCmd.so" prefix_auto="0" extension_auto="0" />
-         <Option working_dir="/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug" />
+         <Option output="/home/sicong/polar_ba/cmake-build-debug/libParseCmd.so" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/sicong/polar_ba/cmake-build-debug" />
          <Option object_output="./" />
          <Option type="3" />
          <Option compiler="gcc" />
          <Compiler>
-            <Add directory="/home/sicong/slambook/ch10/ceres_custombundle/common" />
-            <Add directory="/home/sicong/slambook/ch10/ceres_custombundle/common/flags" />
-            <Add directory="/home/sicong/slambook/ch10/ceres_custombundle/common/tools" />
+            <Add directory="/home/sicong/polar_ba/common" />
+            <Add directory="/home/sicong/polar_ba/common/flags" />
+            <Add directory="/home/sicong/polar_ba/common/tools" />
             <Add directory="/usr/include" />
             <Add directory="/usr/include/c++/4.8" />
             <Add directory="/usr/include/c++/4.8/backward" />
@@ -92,22 +92,22 @@
             <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 ParseCmd" />
-            <CompileFile command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
+            <Build command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 ParseCmd" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
          </MakeCommands>
       </Target>
       <Target title="ParseCmd/fast">
-         <Option output="/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/libParseCmd.so" prefix_auto="0" extension_auto="0" />
-         <Option working_dir="/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug" />
+         <Option output="/home/sicong/polar_ba/cmake-build-debug/libParseCmd.so" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/sicong/polar_ba/cmake-build-debug" />
          <Option object_output="./" />
          <Option type="3" />
          <Option compiler="gcc" />
          <Compiler>
-            <Add directory="/home/sicong/slambook/ch10/ceres_custombundle/common" />
-            <Add directory="/home/sicong/slambook/ch10/ceres_custombundle/common/flags" />
-            <Add directory="/home/sicong/slambook/ch10/ceres_custombundle/common/tools" />
+            <Add directory="/home/sicong/polar_ba/common" />
+            <Add directory="/home/sicong/polar_ba/common/flags" />
+            <Add directory="/home/sicong/polar_ba/common/tools" />
             <Add directory="/usr/include" />
             <Add directory="/usr/include/c++/4.8" />
             <Add directory="/usr/include/c++/4.8/backward" />
@@ -119,22 +119,22 @@
             <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 ParseCmd/fast" />
-            <CompileFile command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
+            <Build command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 ParseCmd/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
          </MakeCommands>
       </Target>
       <Target title="ceres_customBundle">
-         <Option output="/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/ceres_customBundle" prefix_auto="0" extension_auto="0" />
-         <Option working_dir="/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug" />
+         <Option output="/home/sicong/polar_ba/cmake-build-debug/ceres_customBundle" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/sicong/polar_ba/cmake-build-debug" />
          <Option object_output="./" />
          <Option type="1" />
          <Option compiler="gcc" />
          <Compiler>
-            <Add directory="/home/sicong/slambook/ch10/ceres_custombundle/common" />
-            <Add directory="/home/sicong/slambook/ch10/ceres_custombundle/common/flags" />
-            <Add directory="/home/sicong/slambook/ch10/ceres_custombundle/common/tools" />
+            <Add directory="/home/sicong/polar_ba/common" />
+            <Add directory="/home/sicong/polar_ba/common/flags" />
+            <Add directory="/home/sicong/polar_ba/common/tools" />
             <Add directory="/usr/include" />
             <Add directory="/usr/include/c++/4.8" />
             <Add directory="/usr/include/c++/4.8/backward" />
@@ -146,22 +146,22 @@
             <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 ceres_customBundle" />
-            <CompileFile command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
+            <Build command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 ceres_customBundle" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
          </MakeCommands>
       </Target>
       <Target title="ceres_customBundle/fast">
-         <Option output="/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/ceres_customBundle" prefix_auto="0" extension_auto="0" />
-         <Option working_dir="/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug" />
+         <Option output="/home/sicong/polar_ba/cmake-build-debug/ceres_customBundle" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/sicong/polar_ba/cmake-build-debug" />
          <Option object_output="./" />
          <Option type="1" />
          <Option compiler="gcc" />
          <Compiler>
-            <Add directory="/home/sicong/slambook/ch10/ceres_custombundle/common" />
-            <Add directory="/home/sicong/slambook/ch10/ceres_custombundle/common/flags" />
-            <Add directory="/home/sicong/slambook/ch10/ceres_custombundle/common/tools" />
+            <Add directory="/home/sicong/polar_ba/common" />
+            <Add directory="/home/sicong/polar_ba/common/flags" />
+            <Add directory="/home/sicong/polar_ba/common/tools" />
             <Add directory="/usr/include" />
             <Add directory="/usr/include/c++/4.8" />
             <Add directory="/usr/include/c++/4.8/backward" />
@@ -173,66 +173,66 @@
             <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 ceres_customBundle/fast" />
-            <CompileFile command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
+            <Build command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 ceres_customBundle/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
          </MakeCommands>
       </Target>
       <Target title="edit_cache">
-         <Option working_dir="/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug" />
+         <Option working_dir="/home/sicong/polar_ba/cmake-build-debug" />
          <Option type="4" />
          <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache" />
-            <CompileFile command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
+            <Build command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
          </MakeCommands>
       </Target>
       <Target title="rebuild_cache">
-         <Option working_dir="/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug" />
+         <Option working_dir="/home/sicong/polar_ba/cmake-build-debug" />
          <Option type="4" />
          <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache" />
-            <CompileFile command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
+            <Build command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
          </MakeCommands>
       </Target>
       </Build>
-      <Unit filename="/home/sicong/slambook/ch10/ceres_custombundle/ceresBundle.cpp">
+      <Unit filename="/home/sicong/polar_ba/ceresBundle.cpp">
       </Unit>
-      <Unit filename="/home/sicong/slambook/ch10/ceres_custombundle/common/BALProblem.cpp">
+      <Unit filename="/home/sicong/polar_ba/common/BALProblem.cpp">
       </Unit>
-      <Unit filename="/home/sicong/slambook/ch10/ceres_custombundle/common/flags/command_args.cpp">
+      <Unit filename="/home/sicong/polar_ba/common/flags/command_args.cpp">
       </Unit>
-      <Unit filename="/home/sicong/slambook/ch10/ceres_custombundle/common/BALProblem.h">
+      <Unit filename="/home/sicong/polar_ba/common/BALProblem.h">
       </Unit>
-      <Unit filename="/home/sicong/slambook/ch10/ceres_custombundle/common/flags/command_args.h">
+      <Unit filename="/home/sicong/polar_ba/common/flags/command_args.h">
       </Unit>
-      <Unit filename="/home/sicong/slambook/ch10/ceres_custombundle/CMakeLists.txt">
+      <Unit filename="/home/sicong/polar_ba/CMakeLists.txt">
           <Option virtualFolder="CMake Files\" />
       </Unit>
-      <Unit filename="/home/sicong/slambook/ch10/ceres_custombundle/../../../../../usr/local/lib/cmake/Ceres/CeresConfigVersion.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Ceres\" />
+      <Unit filename="/home/sicong/polar_ba/../../../usr/local/lib/cmake/Ceres/CeresConfigVersion.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\usr\local\lib\cmake\Ceres\" />
       </Unit>
-      <Unit filename="/home/sicong/slambook/ch10/ceres_custombundle/../../../../../usr/local/lib/cmake/Ceres/CeresConfig.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Ceres\" />
+      <Unit filename="/home/sicong/polar_ba/../../../usr/local/lib/cmake/Ceres/CeresConfig.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\usr\local\lib\cmake\Ceres\" />
       </Unit>
-      <Unit filename="/home/sicong/slambook/ch10/ceres_custombundle/../../../../../usr/local/lib/cmake/Ceres/FindEigen.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Ceres\" />
+      <Unit filename="/home/sicong/polar_ba/../../../usr/local/lib/cmake/Ceres/FindEigen.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\usr\local\lib\cmake\Ceres\" />
       </Unit>
-      <Unit filename="/home/sicong/slambook/ch10/ceres_custombundle/../../../../../usr/local/lib/cmake/Ceres/FindGlog.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Ceres\" />
+      <Unit filename="/home/sicong/polar_ba/../../../usr/local/lib/cmake/Ceres/FindGlog.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\usr\local\lib\cmake\Ceres\" />
       </Unit>
-      <Unit filename="/home/sicong/slambook/ch10/ceres_custombundle/../../../../../usr/local/lib/cmake/Ceres/FindGflags.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Ceres\" />
+      <Unit filename="/home/sicong/polar_ba/../../../usr/local/lib/cmake/Ceres/FindGflags.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\usr\local\lib\cmake\Ceres\" />
       </Unit>
-      <Unit filename="/home/sicong/slambook/ch10/ceres_custombundle/../../../../../usr/local/lib/cmake/Ceres/CeresTargets.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Ceres\" />
+      <Unit filename="/home/sicong/polar_ba/../../../usr/local/lib/cmake/Ceres/CeresTargets.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\usr\local\lib\cmake\Ceres\" />
       </Unit>
-      <Unit filename="/home/sicong/slambook/ch10/ceres_custombundle/../../../../../usr/local/lib/cmake/Ceres/CeresTargets-release.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Ceres\" />
+      <Unit filename="/home/sicong/polar_ba/../../../usr/local/lib/cmake/Ceres/CeresTargets-release.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\usr\local\lib\cmake\Ceres\" />
       </Unit>
    </Project>
 </CodeBlocks_project_file>

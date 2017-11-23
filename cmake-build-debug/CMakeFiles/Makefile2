@@ -47,10 +47,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sicong/slambook/ch10/ceres_custombundle
+CMAKE_SOURCE_DIR = /home/sicong/polar_ba
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug
+CMAKE_BINARY_DIR = /home/sicong/polar_ba/cmake-build-debug
 
 #=============================================================================
 # Target rules for target CMakeFiles/BALProblem.dir
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/sicong/slambook/ch10/ceres_custombundle/cmake-build-deb
 CMakeFiles/BALProblem.dir/all:
 	$(MAKE) -f CMakeFiles/BALProblem.dir/build.make CMakeFiles/BALProblem.dir/depend
 	$(MAKE) -f CMakeFiles/BALProblem.dir/build.make CMakeFiles/BALProblem.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/CMakeFiles  1
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/sicong/polar_ba/cmake-build-debug/CMakeFiles  1
 	@echo "Built target BALProblem"
 .PHONY : CMakeFiles/BALProblem.dir/all
 
@@ -69,9 +69,9 @@ all: CMakeFiles/BALProblem.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/BALProblem.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sicong/polar_ba/cmake-build-debug/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/BALProblem.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sicong/polar_ba/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/BALProblem.dir/rule
 
 # Convenience name for target.
@@ -94,7 +94,7 @@ clean: CMakeFiles/BALProblem.dir/clean
 CMakeFiles/ParseCmd.dir/all:
 	$(MAKE) -f CMakeFiles/ParseCmd.dir/build.make CMakeFiles/ParseCmd.dir/depend
 	$(MAKE) -f CMakeFiles/ParseCmd.dir/build.make CMakeFiles/ParseCmd.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/CMakeFiles  2
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/sicong/polar_ba/cmake-build-debug/CMakeFiles  2
 	@echo "Built target ParseCmd"
 .PHONY : CMakeFiles/ParseCmd.dir/all
 
@@ -104,9 +104,9 @@ all: CMakeFiles/ParseCmd.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ParseCmd.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sicong/polar_ba/cmake-build-debug/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ParseCmd.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sicong/polar_ba/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/ParseCmd.dir/rule
 
 # Convenience name for target.
@@ -130,7 +130,7 @@ CMakeFiles/ceres_customBundle.dir/all: CMakeFiles/ParseCmd.dir/all
 CMakeFiles/ceres_customBundle.dir/all: CMakeFiles/BALProblem.dir/all
 	$(MAKE) -f CMakeFiles/ceres_customBundle.dir/build.make CMakeFiles/ceres_customBundle.dir/depend
 	$(MAKE) -f CMakeFiles/ceres_customBundle.dir/build.make CMakeFiles/ceres_customBundle.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/CMakeFiles  3
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/sicong/polar_ba/cmake-build-debug/CMakeFiles  3
 	@echo "Built target ceres_customBundle"
 .PHONY : CMakeFiles/ceres_customBundle.dir/all
 
@@ -140,9 +140,9 @@ all: CMakeFiles/ceres_customBundle.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ceres_customBundle.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sicong/polar_ba/cmake-build-debug/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ceres_customBundle.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sicong/polar_ba/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/ceres_customBundle.dir/rule
 
 # Convenience name for target.

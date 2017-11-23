@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/sicong/slambook/ch10/ceres_custombundle/common/flags/command_args.cpp" "/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/CMakeFiles/ParseCmd.dir/common/flags/command_args.cpp.o"
+  "/home/sicong/polar_ba/common/flags/command_args.cpp" "/home/sicong/polar_ba/cmake-build-debug/CMakeFiles/ParseCmd.dir/common/flags/command_args.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

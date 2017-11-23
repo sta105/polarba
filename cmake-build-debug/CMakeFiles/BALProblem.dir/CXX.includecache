@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/sicong/slambook/ch10/ceres_custombundle/common/BALProblem.cpp
+/home/sicong/polar_ba/common/BALProblem.cpp
 BALProblem.h
-/home/sicong/slambook/ch10/ceres_custombundle/common/BALProblem.h
+/home/sicong/polar_ba/common/BALProblem.h
 cstdio
 -
 fstream
@@ -22,13 +22,13 @@ Eigen/Core
 Eigen/Geometry
 -
 tools/random.h
-/home/sicong/slambook/ch10/ceres_custombundle/common/tools/random.h
+/home/sicong/polar_ba/common/tools/random.h
 tools/rotation.h
-/home/sicong/slambook/ch10/ceres_custombundle/common/tools/rotation.h
+/home/sicong/polar_ba/common/tools/rotation.h
 projection.h
-/home/sicong/slambook/ch10/ceres_custombundle/common/projection.h
+/home/sicong/polar_ba/common/projection.h
 
-/home/sicong/slambook/ch10/ceres_custombundle/common/BALProblem.h
+/home/sicong/polar_ba/common/BALProblem.h
 stdio.h
 -
 string
@@ -36,21 +36,21 @@ string
 iostream
 -
 
-/home/sicong/slambook/ch10/ceres_custombundle/common/projection.h
+/home/sicong/polar_ba/common/projection.h
 tools/rotation.h
-/home/sicong/slambook/ch10/ceres_custombundle/common/tools/rotation.h
+/home/sicong/polar_ba/common/tools/rotation.h
 Eigen/Core
 -
 Eigen/Geometry
 -
 
-/home/sicong/slambook/ch10/ceres_custombundle/common/tools/random.h
+/home/sicong/polar_ba/common/tools/random.h
 math.h
 -
 stdlib.h
 -
 
-/home/sicong/slambook/ch10/ceres_custombundle/common/tools/rotation.h
+/home/sicong/polar_ba/common/tools/rotation.h
 algorithm
 -
 cmath

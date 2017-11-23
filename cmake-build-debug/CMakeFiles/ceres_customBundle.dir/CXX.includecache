@@ -6,33 +6,33 @@
 
 #IncludeRegexTransform: 
 
-/home/sicong/slambook/ch10/ceres_custombundle/SnavelyReprojectionError.h
+/home/sicong/polar_ba/SnavelyReprojectionError.h
 iostream
 -
 ceres/ceres.h
-/home/sicong/slambook/ch10/ceres_custombundle/ceres/ceres.h
+/home/sicong/polar_ba/ceres/ceres.h
 common/tools/rotation.h
-/home/sicong/slambook/ch10/ceres_custombundle/common/tools/rotation.h
+/home/sicong/polar_ba/common/tools/rotation.h
 common/projection.h
-/home/sicong/slambook/ch10/ceres_custombundle/common/projection.h
+/home/sicong/polar_ba/common/projection.h
 
-/home/sicong/slambook/ch10/ceres_custombundle/ceresBundle.cpp
+/home/sicong/polar_ba/ceresBundle.cpp
 iostream
 -
 fstream
 -
 ceres/ceres.h
-/home/sicong/slambook/ch10/ceres_custombundle/ceres/ceres.h
+/home/sicong/polar_ba/ceres/ceres.h
 time.h
 -
 SnavelyReprojectionError.h
-/home/sicong/slambook/ch10/ceres_custombundle/SnavelyReprojectionError.h
+/home/sicong/polar_ba/SnavelyReprojectionError.h
 common/BALProblem.h
-/home/sicong/slambook/ch10/ceres_custombundle/common/BALProblem.h
+/home/sicong/polar_ba/common/BALProblem.h
 common/BundleParams.h
-/home/sicong/slambook/ch10/ceres_custombundle/common/BundleParams.h
+/home/sicong/polar_ba/common/BundleParams.h
 
-/home/sicong/slambook/ch10/ceres_custombundle/common/BALProblem.h
+/home/sicong/polar_ba/common/BALProblem.h
 stdio.h
 -
 string
@@ -40,13 +40,13 @@ string
 iostream
 -
 
-/home/sicong/slambook/ch10/ceres_custombundle/common/BundleParams.h
+/home/sicong/polar_ba/common/BundleParams.h
 string
 -
 flags/command_args.h
-/home/sicong/slambook/ch10/ceres_custombundle/common/flags/command_args.h
+/home/sicong/polar_ba/common/flags/command_args.h
 
-/home/sicong/slambook/ch10/ceres_custombundle/common/flags/command_args.h
+/home/sicong/polar_ba/common/flags/command_args.h
 string
 -
 vector
@@ -56,15 +56,15 @@ iostream
 sstream
 -
 
-/home/sicong/slambook/ch10/ceres_custombundle/common/projection.h
+/home/sicong/polar_ba/common/projection.h
 tools/rotation.h
-/home/sicong/slambook/ch10/ceres_custombundle/common/tools/rotation.h
+/home/sicong/polar_ba/common/tools/rotation.h
 Eigen/Core
 -
 Eigen/Geometry
 -
 
-/home/sicong/slambook/ch10/ceres_custombundle/common/tools/rotation.h
+/home/sicong/polar_ba/common/tools/rotation.h
 algorithm
 -
 cmath

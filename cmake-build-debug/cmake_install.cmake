@@ -1,4 +1,4 @@
-# Install script for directory: /home/sicong/slambook/ch10/ceres_custombundle
+# Install script for directory: /home/sicong/polar_ba
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,7 +38,7 @@ else()
   set(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 endif()
 
-file(WRITE "/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}" "")
+file(WRITE "/home/sicong/polar_ba/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}" "")
 foreach(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  file(APPEND "/home/sicong/slambook/ch10/ceres_custombundle/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  file(APPEND "/home/sicong/polar_ba/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 endforeach()

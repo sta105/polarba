@@ -11,6 +11,7 @@
 
 #include "tools/random.h"
 #include "tools/rotation.h"
+#include "tools/random.h"
 #include "projection.h"
 
 
@@ -39,9 +40,8 @@ double Median(std::vector<double>* data){
 
 double get_rand(double min, double max)
 {
-    int N = 99999;
     double range = max-min;
-    double p = rand()%(N+1)/(float)(N+1);
+    double p = RandDouble();
     return min+p*range;
 }
 
@@ -72,7 +72,7 @@ BALProblem::BALProblem(const std::string& filename, bool use_quaternions){
     // 0 0 0 0
     Eigen::Matrix4d firstpose;
     firstpose.setIdentity();
-    firstpose.block<3,1>(0,3) << 0, 0, -3;
+    firstpose.block<3,1>(0,3) << 0, 0, 3;
 
     //set a rand transformation
     Eigen::Matrix4d relativepose;
@@ -86,10 +86,6 @@ BALProblem::BALProblem(const std::string& filename, bool use_quaternions){
     relativepose(1,3) = get_rand(-0.1,0.1);
     relativepose(2,3) = get_rand(-0.1,0.1);
 
-//    Eigen::Matrix4d secondpose;
-//    secondpose.setIdentity();
-//    Eigen::AngleAxisd testrelativerot(M_PI/2, Eigen::Vector3d(0,0,1));
-//    secondpose = testrelativerot;
 
     posebuf.push_back(firstpose);
 
