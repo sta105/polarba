@@ -128,7 +128,7 @@ inline void AngleAxisRotatePoint(const T angle_axis[3], const T pt[3], T result[
 
     const T tmp = DotProduct(w, pt) * (T(1.0) - costheta);
     //    (w[0] * pt[0] + w[1] * pt[1] + w[2] * pt[2]) * (T(1.0) - costheta);
-
+    std::cout<<"pt:"<<pt[0]<<" "<<pt[1]<<" "<<pt[2]<<std::endl;
     result[0] = pt[0] * costheta + w_cross_pt[0] * sintheta + w[0] * tmp;
     result[1] = pt[1] * costheta + w_cross_pt[1] * sintheta + w[1] * tmp;
     result[2] = pt[2] * costheta + w_cross_pt[2] * sintheta + w[2] * tmp;
@@ -154,6 +154,7 @@ inline void AngleAxisRotatePoint(const T angle_axis[3], const T pt[3], T result[
                               angle_axis[2] * pt[0] - angle_axis[0] * pt[2],
                               angle_axis[0] * pt[1] - angle_axis[1] * pt[0] };*/
     T w_cross_pt[3];
+    std::cout<<"pt:"<<pt[0]<<" "<<pt[1]<<" "<<pt[2]<<std::endl;
     CrossProduct(angle_axis, pt, w_cross_pt); 
 
     result[0] = pt[0] + w_cross_pt[0];

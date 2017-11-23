@@ -24,11 +24,12 @@ public:
 
     void Perturb(const double rotation_sigma,
                  const double translation_sigma,
-                 const double point_sigma);
+                 const double point_sigma,
+                const double normal_sigma);
     
     
     int camera_block_size()             const{ return use_quaternions_? 10 : 9;  }
-    int point_block_size()              const{ return 3;                         }             
+    int point_block_size()              const{ return 6;                         }
     int num_cameras()                   const{ return num_cameras_;              }
     int num_points()                    const{ return num_points_;               }
     int num_observations()              const{ return num_observations_;         }

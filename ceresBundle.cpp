@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include "ceres/ceres.h"
+#include <time.h>
 
 #include "SnavelyReprojectionError.h"
 #include "common/BALProblem.h"
@@ -82,9 +83,9 @@ void BuildProblem(BALProblem* bal_problem, Problem* problem, const BundleParams&
         CostFunction* cost_function;
 
         // Each Residual block takes a point and a camera as input 
-        // and outputs a 2 dimensional Residual
+        // and outputs a 3 dimensional Residual , the last observation is the azu angle
       
-        cost_function = SnavelyReprojectionError::Create(observations[2*i + 0], observations[2*i + 1]);
+        cost_function = SnavelyReprojectionError::Create(observations[3*i + 0], observations[3*i + 1], observations[3*i + 2]);
 
         // If enabled use Huber's loss function. 
         LossFunction* loss_function = params.robustify ? new HuberLoss(1.0) : NULL;
@@ -103,6 +104,7 @@ void BuildProblem(BALProblem* bal_problem, Problem* problem, const BundleParams&
 
 void SolveProblem(const char* filename, const BundleParams& params)
 {
+    srand(time(NULL));
     BALProblem bal_problem(filename);
 
     // show some information here ...
@@ -119,10 +121,9 @@ void SolveProblem(const char* filename, const BundleParams& params)
     std::cout << "beginning problem..." << std::endl;
     
     // add some noise for the intial value
-    srand(params.random_seed);
     bal_problem.Normalize();
     bal_problem.Perturb(params.rotation_sigma, params.translation_sigma,
-                        params.point_sigma);
+                        params.point_sigma,params.normal_sigma);
 
     std::cout << "Normalization complete..." << std::endl;
     

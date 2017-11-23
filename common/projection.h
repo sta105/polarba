@@ -16,6 +16,7 @@
 bool projector(double nx,double ny,double nz,double px,double py,double pz, int camindex, int pointindex, int camnum, double* parameters_,double* observations)
 {
     // Rodrigues' formula
+    //std::cout<<"nx ny nz px py pz:"<<nx<<" "<<ny<<" "<<nz<<" "<<px<<" "<<py<<" "<<pz<<std::endl;
     double p[3];
     double point[3];
     double camera[9];
@@ -49,10 +50,14 @@ bool projector(double nx,double ny,double nz,double px,double py,double pz, int 
     Eigen::Vector3d normal(nx, ny, nz);
     Eigen::Vector3d rotvec(parameters_[camindex*9], parameters_[camindex*9+1], parameters_[camindex*9+2]);
     double angle = rotvec.norm();
+    if(abs(angle)<1e-3) rotvec<<1.0,0.0,0.0;
     rotvec.normalize();
     Eigen::AngleAxisd camrotaxis(angle, rotvec);
+    //std::cout<<"the rotation: "<<camrotaxis.matrix()<< std::endl;
     Eigen::Vector3d normalcam = camrotaxis * normal;
+    //std::cout<<"normal projection: "<<normalcam.head(2).transpose()<<std::endl;
     observations[pointindex*camnum*3 + camindex*3 +2] = acos(normalcam(1)/normalcam.head(2).norm());
+    //std::cout<<"The pixel:"<< observations[pointindex*camnum*3 + camindex*3]<<" "<< observations[pointindex*camnum*3 + camindex*3 +1]<<" "<<observations[pointindex*camnum*3 + camindex*3 +2]<<std::endl;
     return true;
 }
 

@@ -31,6 +31,7 @@ public:
     double rotation_sigma;
     double translation_sigma;
     double point_sigma;
+    double normal_sigma;
 
     // for point cloud file...
     string initial_ply;
@@ -64,8 +65,11 @@ public:
     arg.param("translation_sigma", translation_sigma,0.0, "translation perturbation.");
     arg.param("point_sigma",point_sigma,0.0,"Standard deviation of the point "
               "perturbation.");
+    arg.param("normal_sigma",normal_sigma,0.0,"Standard deviation of the normal "
+             "perturbation.");
+
     arg.param("random_seed", random_seed, 38401,"Random seed used to set the state ");
-    arg.param("initial_ply", initial_ply,"","Export the BAL file data as a PLY file.");
+    arg.param("initial_ply", initial_ply,"initial.ply","Export the BAL file data as a PLY file.");
     arg.param("final_ply", final_ply, "", "Export the refined BAL file data as a PLY");
 
 

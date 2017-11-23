@@ -39,17 +39,15 @@ double Median(std::vector<double>* data){
 
 double get_rand(double min, double max)
 {
-    int N = 9999999;
+    int N = 99999;
     double range = max-min;
-    srand(time(NULL));
     double p = rand()%(N+1)/(float)(N+1);
     return min+p*range;
 }
 
 BALProblem::BALProblem(const std::string& filename, bool use_quaternions){
-
     num_cameras_ = 2;
-    num_points_ = 100;
+    num_points_ = 1000;
     num_observations_ = num_points_ * num_cameras_;
 
     std::cout << "Header: " << num_cameras_
@@ -81,12 +79,17 @@ BALProblem::BALProblem(const std::string& filename, bool use_quaternions){
     Eigen::Vector3d randaxis;
     randaxis << get_rand(0,1), get_rand(0,1) , get_rand(0,1);
     randaxis.normalize();
-    Eigen::AngleAxisd relativerot(get_rand(0.0,M_PI/4), randaxis);
+    Eigen::AngleAxisd relativerot(get_rand(M_PI/10,M_PI/4), randaxis);
     relativepose.setIdentity();
     relativepose.block<3,3>(0,0) = relativerot.toRotationMatrix();
-    relativepose(0,3) = get_rand(-1.0,1.0);
-    relativepose(1,3) = get_rand(-1.0,1.0);
-    relativepose(2,3) = get_rand(-1.0,1.0);
+    relativepose(0,3) = get_rand(-0.1,0.1);
+    relativepose(1,3) = get_rand(-0.1,0.1);
+    relativepose(2,3) = get_rand(-0.1,0.1);
+
+//    Eigen::Matrix4d secondpose;
+//    secondpose.setIdentity();
+//    Eigen::AngleAxisd testrelativerot(M_PI/2, Eigen::Vector3d(0,0,1));
+//    secondpose = testrelativerot;
 
     posebuf.push_back(firstpose);
 
@@ -108,7 +111,7 @@ BALProblem::BALProblem(const std::string& filename, bool use_quaternions){
         parameters_[i*9+3] = pose(0,3);
         parameters_[i*9+4] = pose(1,3);
         parameters_[i*9+5] = pose(3,3);
-        parameters_[i*9+6] = 0.1;  //the focal length needs to be fixed later
+        parameters_[i*9+6] = 1000;  //the focal length needs to be fixed later
         parameters_[i*9+7] = 0.0;  // assume there is no distortion
         parameters_[i*9+8] = 0.0;
     }
@@ -119,6 +122,10 @@ BALProblem::BALProblem(const std::string& filename, bool use_quaternions){
         double ny = get_rand(-1.0,1.0);
         double nz = get_rand(-1.0,1.0);
         double nnorm = sqrt(nx*nx + ny*ny + nz*nz);
+        nx/=nnorm;
+        ny/=nnorm;
+        nz/=nnorm;
+        //std::cout<<"nx ny nz"<<nx<<" "<<ny<<" "<<nz<<std::endl;
 
         double px = get_rand(-1.0,1.0);
         double py = get_rand(-1.0,1.0);
@@ -219,8 +226,7 @@ void BALProblem::WriteToPLYFile(const std::string& filename)const{
     for(int i = 0; i < num_cameras(); ++i){
       const double* camera = cameras() + camera_block_size() * i;
       CameraToAngelAxisAndCenter(camera, angle_axis, center);
-      of << center[0] << ' ' << center[1] << ' ' << center[2]
-         << "0 255 0" << '\n';
+      of << center[0] << ' ' << center[1] << ' ' << center[2] <<" "<< "0 255 0" << '\n';
     }
 
     // Export the structure (i.e. 3D Points) as white points.
@@ -228,7 +234,8 @@ void BALProblem::WriteToPLYFile(const std::string& filename)const{
     for(int i = 0; i < num_points(); ++i){
       const double* point = points + i * point_block_size();
       for(int j = 0; j < point_block_size(); ++j){
-        of << point[j] << ' ';
+        if(j<3)
+        {of << point[j] << ' ';}
       }
       of << "255 255 255\n";
     }
@@ -247,10 +254,13 @@ void BALProblem::CameraToAngelAxisAndCenter(const double* camera,
 
     // c = -R't
     Eigen::VectorXd inverse_rotation = -angle_axis_ref;
+    std::cout<<"rotation:\n"<<inverse_rotation<<std::endl;
     AngleAxisRotatePoint(inverse_rotation.data(),
                          camera + camera_block_size() - 6,
                          center);
+    std::cout<<"The camera center:"<<center[0]<<" "<<center[1]<<" "<<center[2]<<std::endl;
     VectorRef(center,3) *= -1.0;
+    std::cout<<"The camera center:"<<center[0]<<" "<<center[1]<<" "<<center[2]<<std::endl;
 }
 
 void BALProblem::AngleAxisAndCenterToCamera(const double* angle_axis,
@@ -313,15 +323,24 @@ void BALProblem::Normalize(){
 
 void BALProblem::Perturb(const double rotation_sigma, 
                          const double translation_sigma,
-                         const double point_sigma){
+                         const double point_sigma,
+                        const double normal_sigma){
    assert(point_sigma >= 0.0);
    assert(rotation_sigma >= 0.0);
    assert(translation_sigma >= 0.0);
+   assert(normal_sigma >= 0.0);
 
    double* points = mutable_points();
-   if(point_sigma > 0){
+
+    if(normal_sigma > 0){
+        for(int i = 0; i < num_points_; ++i){
+            PerturbPoint3(point_sigma, points + 6 * i );
+        }
+    }
+
+    if(point_sigma > 0){
      for(int i = 0; i < num_points_; ++i){
-       PerturbPoint3(point_sigma, points + 3 * i);
+       PerturbPoint3(point_sigma, points + 6 * i + 3 );
      }
    }
 
