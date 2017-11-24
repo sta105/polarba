@@ -18,8 +18,7 @@
 typedef Eigen::Map<Eigen::VectorXd> VectorRef;
 typedef Eigen::Map<const Eigen::VectorXd> ConstVectorRef;
 
-template<typename T>
-void FscanfOrDie(FILE *fptr, const char *format, T *value){
+void FscanfOrDie(FILE *fptr, const char *format, double *value){
         int num_scanned = fscanf(fptr, format, value);
         if(num_scanned != 1)
             std::cerr<< "Invalid UW data file. ";
@@ -46,8 +45,8 @@ double get_rand(double min, double max)
 }
 
 BALProblem::BALProblem(const std::string& filename, bool use_quaternions){
-    num_cameras_ = 2;
-    num_points_ = 1000;
+    num_cameras_ = 4;
+    num_points_ = 500;
     num_observations_ = num_points_ * num_cameras_;
 
     std::cout << "Header: " << num_cameras_
@@ -68,13 +67,14 @@ BALProblem::BALProblem(const std::string& filename, bool use_quaternions){
     //set the first pose to
     // 1 0 0 0
     // 0 1 0 0
-    // 0 0 1 -3
+    // 0 0 1 3
     // 0 0 0 0
+    // then the camera center of the first camera will be 0 0 -3;
     Eigen::Matrix4d firstpose;
     firstpose.setIdentity();
     firstpose.block<3,1>(0,3) << 0, 0, 3;
 
-    //set a rand transformation
+    //set a rand relative transformation
     Eigen::Matrix4d relativepose;
     Eigen::Vector3d randaxis;
     randaxis << get_rand(0,1), get_rand(0,1) , get_rand(0,1);
@@ -92,7 +92,7 @@ BALProblem::BALProblem(const std::string& filename, bool use_quaternions){
     for(int i=1;i<num_cameras_;i++){
         Eigen::Matrix4d currentpos;
         currentpos.setIdentity();
-        currentpos = relativepose * firstpose;
+        currentpos = relativepose * posebuf.back();
         posebuf.push_back(currentpos);
     }
 
@@ -100,14 +100,14 @@ BALProblem::BALProblem(const std::string& filename, bool use_quaternions){
         Eigen::Matrix4d pose = posebuf[i];
         Eigen::AngleAxisd currentrot(pose.block<3,3>(0,0));
         Eigen::Vector3d axisvec = currentrot.angle() * currentrot.axis();
-        std::cout<<"Pose "<<i<<" :\n"<<pose<<std::endl;
+        //std::cout<<"\nPose "<<i<<" :\n"<<pose<<std::endl;
         parameters_[i*9+0] = axisvec(0); // this is wrong, need to reset the rotaxis later
         parameters_[i*9+1] = axisvec(1);
         parameters_[i*9+2] = axisvec(2);
         parameters_[i*9+3] = pose(0,3);
         parameters_[i*9+4] = pose(1,3);
-        parameters_[i*9+5] = pose(3,3);
-        parameters_[i*9+6] = 1000;  //the focal length needs to be fixed later
+        parameters_[i*9+5] = pose(2,3);
+        parameters_[i*9+6] = 600;  //the focal length needs to be fixed later
         parameters_[i*9+7] = 0.0;  // assume there is no distortion
         parameters_[i*9+8] = 0.0;
     }
@@ -251,6 +251,7 @@ void BALProblem::CameraToAngelAxisAndCenter(const double* camera,
     // c = -R't
     Eigen::VectorXd inverse_rotation = -angle_axis_ref;
     std::cout<<"rotation:\n"<<inverse_rotation<<std::endl;
+    std::cout<<"translation:"<<camera[3]<<" "<<camera[4]<<" "<<camera[5]<<std::endl;
     AngleAxisRotatePoint(inverse_rotation.data(),
                          camera + camera_block_size() - 6,
                          center);
@@ -282,13 +283,13 @@ void BALProblem::Normalize(){
   double* points = mutable_points();
   for(int i = 0; i < 3; ++i){
     for(int j = 0; j < num_points_; ++j){
-      tmp[j] = points[3 * j + i];      
+      tmp[j] = points[6 * j + i];
     }
     median(i) = Median(&tmp);
   }
 
   for(int i = 0; i < num_points_; ++i){
-    VectorRef point(points + 3 * i, 3);
+    VectorRef point(points + 6 * i, 3);
     tmp[i] = (point - median).lpNorm<1>();
   }
 
@@ -301,7 +302,7 @@ void BALProblem::Normalize(){
 
   // X = scale * (X - median)
   for(int i = 0; i < num_points_; ++i){
-    VectorRef point(points + 3 * i, 3);
+    VectorRef point(points + 6 * i, 3);
     point = scale * (point - median);
   }
 

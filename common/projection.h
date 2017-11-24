@@ -61,28 +61,39 @@ bool projector(double nx,double ny,double nz,double px,double py,double pz, int 
     return true;
 }
 
-template<typename T>
-inline bool CamProjectionWithDistortion(const T* camera, const T* point, T* predictions){
+inline bool CamProjectionWithDistortion(const double* camera, const double* point, double* predictions){
     // Rodrigues' formula
-    T p[3];
+    double p[3];
     AngleAxisRotatePoint(camera, point, p);
     // camera[3,4,5] are the translation
     p[0] += camera[3]; p[1] += camera[4]; p[2] += camera[5];
 
     // Compute the center fo distortion
-    T xp = -p[0]/p[2];
-    T yp = -p[1]/p[2];
+    double xp = -p[0]/p[2];
+    double yp = -p[1]/p[2];
 
     // Apply second and fourth order radial distortion
-    const T& l1 = camera[7];
-    const T& l2 = camera[8];
+    const double& l1 = camera[7];
+    const double& l2 = camera[8];
 
-    T r2 = xp*xp + yp*yp;
-    T distortion = T(1.0) + r2 * (l1 + l2 * r2);
+    double r2 = xp*xp + yp*yp;
+    double distortion = double(1.0) + r2 * (l1 + l2 * r2);
 
-    const T& focal = camera[6];
+    const double& focal = camera[6];
     predictions[0] = focal * distortion * xp;
     predictions[1] = focal * distortion * yp;
+
+
+    Eigen::Vector3d normal(point[3], point[4], point[5]);
+    Eigen::Vector3d rotvec(camera[0], camera[1], camera[2]);
+    double angle = rotvec.norm();
+    if(abs(angle)<1e-3) rotvec<<1.0,0.0,0.0;
+    rotvec.normalize();
+    Eigen::AngleAxisd camrotaxis(angle, rotvec);
+    //std::cout<<"the rotation: "<<camrotaxis.matrix()<< std::endl;
+    Eigen::Vector3d normalcam = camrotaxis * normal;
+    //std::cout<<"normal projection: "<<normalcam.head(2).transpose()<<std::endl;
+    predictions[2] = acos(normalcam(1)/normalcam.head(2).norm());
 
     return true;
 }

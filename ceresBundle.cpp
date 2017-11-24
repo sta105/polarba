@@ -114,11 +114,12 @@ void SolveProblem(const char* filename, const BundleParams& params)
     std::cout << "Forming " << bal_problem.num_observations() << " observatoins. " << std::endl;
 
     // store the initial 3D cloud points and camera pose..
+
+    std::cout << "beginning problem..." << std::endl;
+
     if(!params.initial_ply.empty()){
         bal_problem.WriteToPLYFile(params.initial_ply);
     }
-
-    std::cout << "beginning problem..." << std::endl;
     
     // add some noise for the intial value
     bal_problem.Normalize();
@@ -126,6 +127,10 @@ void SolveProblem(const char* filename, const BundleParams& params)
                         params.point_sigma,params.normal_sigma);
 
     std::cout << "Normalization complete..." << std::endl;
+
+    if(!params.initial_ply.empty()){
+        bal_problem.WriteToPLYFile(params.noisy_ply);
+    }
     
     Problem problem;
     BuildProblem(&bal_problem, &problem, params);
