@@ -4,6 +4,7 @@
 #include "tools/rotation.h"
 #include <Eigen/Core>
 #include <Eigen/Geometry>
+#include "tools/Frame.h"
 
 // camera : 9 dims array with 
 // [0-2] : angle-axis rotation 
@@ -12,6 +13,29 @@
 // point : 3D location. 
 // predictions : 2D predictions with center of the image plane.
 
+bool eigenprojector(const Vector3d normal,const Vector3d pt, int index , Frame& frame){
+    Vector4d camerapt;
+    Vector3d normalizedpt;
+    Vector3d uv;
+
+    camerapt.setOnes();
+    camerapt.head(3) = pt;
+    camerapt = frame.extrinsic * camerapt;
+    normalizedpt = camerapt.head(3)/camerapt(3);
+    uv = frame.intrinsic * normalizedpt;
+    //std::cout<<"the projection: "<< uv.head(2).transpose()<<std::endl;
+
+    if((int)uv(0)<0&&(int)uv(0)>frame.h&&(int)uv(1)<0&&(int)uv(1)>frame.w)
+    {
+        frame.projectionvalid = false;
+        return false;
+    }
+    frame.tmppixel.coordinate[0] = int(uv(0));
+    frame.tmppixel.coordinate[1] = int(uv(1));
+    frame.tmppixel.ptindex = index;
+    frame.projectionvalid = true;
+    return true;
+}
 
 bool projector(double nx,double ny,double nz,double px,double py,double pz, int camindex, int pointindex, int camnum, double* parameters_,double* observations)
 {

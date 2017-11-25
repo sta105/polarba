@@ -106,6 +106,69 @@ void SolveProblem(const char* filename, const BundleParams& params)
 {
     srand(time(NULL));
     BALProblem bal_problem(filename);
+    bal_problem.Datagenerator(filename);
+
+    std::ofstream of("eigen.ply");
+
+    of<< "ply"
+      << '\n' << "format ascii 1.0"
+      << '\n' << "element vertex " << bal_problem.Framebuf.size() + bal_problem.pcbuf.size()
+      << '\n' << "property float x"
+      << '\n' << "property float y"
+      << '\n' << "property float z"
+      << '\n' << "property uchar red"
+      << '\n' << "property uchar green"
+      << '\n' << "property uchar blue"
+      << '\n' << "end_header" << std::endl;
+
+    std::cout<<"print "<<bal_problem.pcbuf.size()<<" points"<<std::endl;
+    // Export the structure (i.e. 3D Points) as white points.
+
+    for(int i = 0; i < bal_problem.Framebuf.size(); ++i){
+        Vector3d camcenter;
+        //Vector3d spherecenter(0,0,3);
+        camcenter = -1.0 * bal_problem.Framebuf[i].extrinsic.block<3,3>(0,0).transpose() * bal_problem.Framebuf[i].extrinsic.block<3,1>(0,3);
+        //std::cout<<"sphere error: "<< (camcenter - spherecenter).norm() - 3.0 <<std::endl;
+        of << camcenter(0) << ' '<< camcenter(1) <<' '<< camcenter(2) <<' ';
+        of << "0 0 255\n";
+    }
+
+    for(int i = 0; i < bal_problem.pcbuf.size(); ++i){
+        of << bal_problem.pcbuf[i].xyz(0) << ' '<< bal_problem.pcbuf[i].xyz(1) <<' '<< bal_problem.pcbuf[i].xyz(2) <<' ';
+        of << "255 255 255\n";
+    }
+    of.close();
+
+
+    std::ofstream of1("projection.ply");
+
+    of1<< "ply"
+      << '\n' << "format ascii 1.0"
+      << '\n' << "element vertex " << bal_problem.Framebuf[0].obs.size()
+      << '\n' << "property float x"
+      << '\n' << "property float y"
+      << '\n' << "property float z"
+      << '\n' << "property uchar red"
+      << '\n' << "property uchar green"
+      << '\n' << "property uchar blue"
+      << '\n' << "end_header" << std::endl;
+
+    std::cout<<"print "<<bal_problem.Framebuf[0].obs.size()<<" projections"<<std::endl;
+    // Export the structure (i.e. 3D Points) as white points.
+
+    for(int i = 0; i < bal_problem.Framebuf[0].obs.size(); ++i){
+        //Vector3d camcenter;
+        //Vector3d spherecenter(0,0,3);
+        //camcenter = -1.0 * bal_problem.Framebuf[0].extrinsic.block<3,3>(0,0).transpose() * bal_problem.Framebuf[i].extrinsic.block<3,1>(0,3);
+        //std::cout<<"sphere error: "<< (camcenter - spherecenter).norm() - 3.0 <<std::endl;
+        of1 << (double)bal_problem.Framebuf[0].obs[i].coordinate[0] << ' '<< (double)bal_problem.Framebuf[0].obs[i].coordinate[1] <<' '<< 0.0 <<' ';
+        of1 << "0 0 255\n";
+    }
+    of1.close();
+
+
+    bal_problem.initialization();
+    //bal_problem.solveodometry();
 
     // show some information here ...
     std::cout << "bal problem file loaded..." << std::endl;
@@ -117,12 +180,15 @@ void SolveProblem(const char* filename, const BundleParams& params)
 
     std::cout << "beginning problem..." << std::endl;
 
+
+    // add some noise for the intial value
+    bal_problem.Normalize();
+
     if(!params.initial_ply.empty()){
         bal_problem.WriteToPLYFile(params.initial_ply);
     }
-    
-    // add some noise for the intial value
-    bal_problem.Normalize();
+
+
     bal_problem.Perturb(params.rotation_sigma, params.translation_sigma,
                         params.point_sigma,params.normal_sigma);
 

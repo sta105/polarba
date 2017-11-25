@@ -84,6 +84,24 @@ ceres_customBundle: CMakeFiles/ceres_customBundle.dir/build.make
 ceres_customBundle: libBALProblem.so
 ceres_customBundle: libParseCmd.so
 ceres_customBundle: /usr/local/lib/libceres.a
+ceres_customBundle: /usr/local/lib/libopencv_calib3d.so.3.3.1
+ceres_customBundle: /usr/local/lib/libopencv_core.so.3.3.1
+ceres_customBundle: /usr/local/lib/libopencv_dnn.so.3.3.1
+ceres_customBundle: /usr/local/lib/libopencv_features2d.so.3.3.1
+ceres_customBundle: /usr/local/lib/libopencv_flann.so.3.3.1
+ceres_customBundle: /usr/local/lib/libopencv_highgui.so.3.3.1
+ceres_customBundle: /usr/local/lib/libopencv_imgcodecs.so.3.3.1
+ceres_customBundle: /usr/local/lib/libopencv_imgproc.so.3.3.1
+ceres_customBundle: /usr/local/lib/libopencv_ml.so.3.3.1
+ceres_customBundle: /usr/local/lib/libopencv_objdetect.so.3.3.1
+ceres_customBundle: /usr/local/lib/libopencv_photo.so.3.3.1
+ceres_customBundle: /usr/local/lib/libopencv_shape.so.3.3.1
+ceres_customBundle: /usr/local/lib/libopencv_stitching.so.3.3.1
+ceres_customBundle: /usr/local/lib/libopencv_superres.so.3.3.1
+ceres_customBundle: /usr/local/lib/libopencv_video.so.3.3.1
+ceres_customBundle: /usr/local/lib/libopencv_videoio.so.3.3.1
+ceres_customBundle: /usr/local/lib/libopencv_videostab.so.3.3.1
+ceres_customBundle: /usr/local/lib/libopencv_viz.so.3.3.1
 ceres_customBundle: /usr/lib/x86_64-linux-gnu/libglog.so
 ceres_customBundle: /usr/lib/x86_64-linux-gnu/libgflags.so
 ceres_customBundle: /usr/lib/x86_64-linux-gnu/libspqr.so
@@ -114,6 +132,16 @@ ceres_customBundle: /usr/lib/libatlas.so
 ceres_customBundle: /usr/lib/x86_64-linux-gnu/libsuitesparseconfig.a
 ceres_customBundle: /usr/lib/x86_64-linux-gnu/librt.so
 ceres_customBundle: /usr/local/lib/libmetis.so
+ceres_customBundle: /usr/local/lib/libopencv_calib3d.so.3.3.1
+ceres_customBundle: /usr/local/lib/libopencv_features2d.so.3.3.1
+ceres_customBundle: /usr/local/lib/libopencv_flann.so.3.3.1
+ceres_customBundle: /usr/local/lib/libopencv_highgui.so.3.3.1
+ceres_customBundle: /usr/local/lib/libopencv_photo.so.3.3.1
+ceres_customBundle: /usr/local/lib/libopencv_video.so.3.3.1
+ceres_customBundle: /usr/local/lib/libopencv_videoio.so.3.3.1
+ceres_customBundle: /usr/local/lib/libopencv_imgcodecs.so.3.3.1
+ceres_customBundle: /usr/local/lib/libopencv_imgproc.so.3.3.1
+ceres_customBundle: /usr/local/lib/libopencv_core.so.3.3.1
 ceres_customBundle: CMakeFiles/ceres_customBundle.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable ceres_customBundle"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ceres_customBundle.dir/link.txt --verbose=$(VERBOSE)

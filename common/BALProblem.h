@@ -5,11 +5,23 @@
 #include <string>
 #include <iostream>
 
+#include <Eigen/Core>
+#include <Eigen/Geometry>
+#include "tools/Frame.h"
+
+#include <opencv2/core/core.hpp>
+#include <opencv2/features2d/features2d.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/calib3d/calib3d.hpp>
+
+using namespace Eigen;
+using namespace cv;
 
 class BALProblem
 {
 public:
-    explicit BALProblem(const std::string& filename, bool use_quaternions = false);
+    BALProblem();
+    explicit BALProblem(const std::string& filename, bool use_quaternions = false){use_quaternions_ = use_quaternions;Framebuf.clear();pcbuf.clear();}
     ~BALProblem(){
         delete[] point_index_;
         delete[] camera_index_;
@@ -21,6 +33,7 @@ public:
     void WriteToPLYFile(const std::string& filename)const;
 
     void Normalize();
+    void Datagenerator(const std::string& filename);
 
     void Perturb(const double rotation_sigma,
                  const double translation_sigma,
@@ -59,6 +72,11 @@ public:
         return points() + point_index_[i] * point_block_size();
     }
 
+    bool initialization();
+    bool findmatches(const int i,const int j,std::vector<Point2d>& points1, std::vector<Point2d>& points2);
+
+    std::vector<Frame> Framebuf;
+    std::vector<P3d> pcbuf;
 
 private:
     void CameraToAngelAxisAndCenter(const double* camera,
@@ -82,5 +100,9 @@ private:
     double* normal3d;
     double* point3d;
 };
+
+void cameragenerator(const Vector3d center, const double rad, const Vector3d lastcam, double disparity, Vector3d& result);
+void posegenerator(const Matrix4d lastpose, const Vector3d center, const double rad, Matrix4d& currentpose);
+
 
 #endif // BALProblem.h

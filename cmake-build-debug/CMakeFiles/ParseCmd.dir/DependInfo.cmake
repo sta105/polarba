@@ -15,6 +15,7 @@ set(CMAKE_TARGET_LINKED_INFO_FILES
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
   "/usr/local/include"
+  "/usr/local/include/opencv"
   "/usr/include/eigen3"
   "../common"
   "../common/tools"

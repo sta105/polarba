@@ -61,15 +61,15 @@ public:
     arg.param("num_threads",num_threads,1, "Number of threads.");
     arg.param("num_iterations", num_iterations,1000, "Number of iterations.");
 
-    arg.param("rotation_sigma", rotation_sigma, 0.2, "Standard deviation of camera rotation "
+    arg.param("rotation_sigma", rotation_sigma, 0.3, "Standard deviation of camera rotation "
               "perturbation.");
-    arg.param("translation_sigma", translation_sigma,5, "translation perturbation.");
-    arg.param("point_sigma",point_sigma,6,"Standard deviation of the point "
+    arg.param("translation_sigma", translation_sigma,10, "translation perturbation.");
+    arg.param("point_sigma",point_sigma,10,"Standard deviation of the point "
               "perturbation.");
-    arg.param("normal_sigma",normal_sigma,0.2,"Standard deviation of the normal "
+    arg.param("normal_sigma",normal_sigma,0.3,"Standard deviation of the normal "
              "perturbation.");
 
-    arg.param("random_seed", random_seed, 38401,"Random seed used to set the state ");
+    arg.param("random_seed", random_seed, 38400,"Random seed used to set the state ");
     arg.param("initial_ply", initial_ply,"initial.ply","Export the BAL file data as a PLY file.");
      arg.param("noisy_ply", noisy_ply, "noisy.ply", "Export the noisy BAL file data as a PLY");
     arg.param("final_ply", final_ply, "final.ply", "Export the refined BAL file data as a PLY");

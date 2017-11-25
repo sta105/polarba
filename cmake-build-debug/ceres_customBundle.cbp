@@ -5,7 +5,7 @@
       <Option title="ceres_customBundle" />
       <Option makefile_is_custom="1" />
       <Option compiler="gcc" />
-      <Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\usr\;CMake Files\..\..\..\usr\local\;CMake Files\..\..\..\usr\local\lib\;CMake Files\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\usr\local\lib\cmake\Ceres\;" />
+      <Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\usr\;CMake Files\..\..\..\usr\local\;CMake Files\..\..\..\usr\local\lib\;CMake Files\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\usr\local\lib\cmake\Ceres\;CMake Files\..\..\..\usr\local\share\;CMake Files\..\..\..\usr\local\share\OpenCV\;" />
       <Build>
       <Target title="all">
          <Option working_dir="/home/sicong/polar_ba/cmake-build-debug" />
@@ -36,6 +36,7 @@
             <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
             <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
             <Add directory="/usr/local/include" />
+            <Add directory="/usr/local/include/opencv" />
          </Compiler>
          <MakeCommands>
             <Build command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 BALProblem" />
@@ -63,6 +64,7 @@
             <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
             <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
             <Add directory="/usr/local/include" />
+            <Add directory="/usr/local/include/opencv" />
          </Compiler>
          <MakeCommands>
             <Build command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 BALProblem/fast" />
@@ -90,6 +92,7 @@
             <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
             <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
             <Add directory="/usr/local/include" />
+            <Add directory="/usr/local/include/opencv" />
          </Compiler>
          <MakeCommands>
             <Build command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 ParseCmd" />
@@ -117,6 +120,7 @@
             <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
             <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
             <Add directory="/usr/local/include" />
+            <Add directory="/usr/local/include/opencv" />
          </Compiler>
          <MakeCommands>
             <Build command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 ParseCmd/fast" />
@@ -144,6 +148,7 @@
             <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
             <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
             <Add directory="/usr/local/include" />
+            <Add directory="/usr/local/include/opencv" />
          </Compiler>
          <MakeCommands>
             <Build command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 ceres_customBundle" />
@@ -171,6 +176,7 @@
             <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
             <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
             <Add directory="/usr/local/include" />
+            <Add directory="/usr/local/include/opencv" />
          </Compiler>
          <MakeCommands>
             <Build command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 ceres_customBundle/fast" />
@@ -233,6 +239,18 @@
       </Unit>
       <Unit filename="/home/sicong/polar_ba/../../../usr/local/lib/cmake/Ceres/CeresTargets-release.cmake">
           <Option virtualFolder="CMake Files\..\..\..\usr\local\lib\cmake\Ceres\" />
+      </Unit>
+      <Unit filename="/home/sicong/polar_ba/../../../usr/local/share/OpenCV/OpenCVConfig-version.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\OpenCV\" />
+      </Unit>
+      <Unit filename="/home/sicong/polar_ba/../../../usr/local/share/OpenCV/OpenCVConfig.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\OpenCV\" />
+      </Unit>
+      <Unit filename="/home/sicong/polar_ba/../../../usr/local/share/OpenCV/OpenCVModules.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\OpenCV\" />
+      </Unit>
+      <Unit filename="/home/sicong/polar_ba/../../../usr/local/share/OpenCV/OpenCVModules-release.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\OpenCV\" />
       </Unit>
    </Project>
 </CodeBlocks_project_file>
