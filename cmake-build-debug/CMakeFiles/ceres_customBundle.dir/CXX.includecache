@@ -6,33 +6,33 @@
 
 #IncludeRegexTransform: 
 
-/home/sicong/polar_ba/SnavelyReprojectionError.h
+/home/sicong/polarba/polarba/SnavelyReprojectionError.h
 iostream
 -
 ceres/ceres.h
-/home/sicong/polar_ba/ceres/ceres.h
+/home/sicong/polarba/polarba/ceres/ceres.h
 common/tools/rotation.h
-/home/sicong/polar_ba/common/tools/rotation.h
+/home/sicong/polarba/polarba/common/tools/rotation.h
 common/projection.h
-/home/sicong/polar_ba/common/projection.h
+/home/sicong/polarba/polarba/common/projection.h
 
-/home/sicong/polar_ba/ceresBundle.cpp
+/home/sicong/polarba/polarba/ceresBundle.cpp
 iostream
 -
 fstream
 -
 ceres/ceres.h
-/home/sicong/polar_ba/ceres/ceres.h
+/home/sicong/polarba/polarba/ceres/ceres.h
 time.h
 -
 SnavelyReprojectionError.h
-/home/sicong/polar_ba/SnavelyReprojectionError.h
+/home/sicong/polarba/polarba/SnavelyReprojectionError.h
 common/BALProblem.h
-/home/sicong/polar_ba/common/BALProblem.h
+/home/sicong/polarba/polarba/common/BALProblem.h
 common/BundleParams.h
-/home/sicong/polar_ba/common/BundleParams.h
+/home/sicong/polarba/polarba/common/BundleParams.h
 
-/home/sicong/polar_ba/common/BALProblem.h
+/home/sicong/polarba/polarba/common/BALProblem.h
 stdio.h
 -
 string
@@ -44,7 +44,7 @@ Eigen/Core
 Eigen/Geometry
 -
 tools/Frame.h
-/home/sicong/polar_ba/common/tools/Frame.h
+/home/sicong/polarba/polarba/common/tools/Frame.h
 opencv2/core/core.hpp
 -
 opencv2/features2d/features2d.hpp
@@ -54,13 +54,13 @@ opencv2/highgui/highgui.hpp
 opencv2/calib3d/calib3d.hpp
 -
 
-/home/sicong/polar_ba/common/BundleParams.h
+/home/sicong/polarba/polarba/common/BundleParams.h
 string
 -
 flags/command_args.h
-/home/sicong/polar_ba/common/flags/command_args.h
+/home/sicong/polarba/polarba/common/flags/command_args.h
 
-/home/sicong/polar_ba/common/flags/command_args.h
+/home/sicong/polarba/polarba/common/flags/command_args.h
 string
 -
 vector
@@ -70,21 +70,21 @@ iostream
 sstream
 -
 
-/home/sicong/polar_ba/common/projection.h
+/home/sicong/polarba/polarba/common/projection.h
 tools/rotation.h
-/home/sicong/polar_ba/common/tools/rotation.h
+/home/sicong/polarba/polarba/common/tools/rotation.h
 Eigen/Core
 -
 Eigen/Geometry
 -
 tools/Frame.h
-/home/sicong/polar_ba/common/tools/Frame.h
+/home/sicong/polarba/polarba/common/tools/Frame.h
 
-/home/sicong/polar_ba/common/tools/Frame.h
+/home/sicong/polarba/polarba/common/tools/Frame.h
 Eigen/Core
 -
 
-/home/sicong/polar_ba/common/tools/rotation.h
+/home/sicong/polarba/polarba/common/tools/rotation.h
 algorithm
 -
 cmath

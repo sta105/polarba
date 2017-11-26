@@ -155,7 +155,7 @@ void BALProblem::Datagenerator(const std::string& filename)
     for(int i=0;i<num_cameras_-1;i++){
         Frame polarframe;
         Matrix4d currentpose;
-        posegenerator(Framebuf.back().extrinsic, spherecenter , 3.0 , currentpose);
+        posegenerator(Framebuf.back().extrinsic, spherecenter , 5.0 , currentpose);
         polarframe.extrinsic = currentpose;
         Framebuf.push_back(polarframe);
     }
@@ -177,7 +177,7 @@ void BALProblem::Datagenerator(const std::string& filename)
         //std::cout<<"nx ny nz"<<nx<<" "<<ny<<" "<<nz<<std::endl;
 
         wp(0) = get_rand(-1.0,1.0);
-        wp(1) = get_rand(-1.0,1.0);
+        wp(1) = get_rand(-2.0,2.0);
         wp(2) = get_rand(-1.0,1.0);
         wp += spherecenter;
 
@@ -538,16 +538,16 @@ bool BALProblem::initialization()
     std::cout<<"essential_matrix:\n"<<essential_matrix<<std::endl;
 
 
-    recoverPose (essential_matrix, points1, points2, R, t, focal_length, principal_point );
+    //recoverPose (essential_matrix, points1, points2, R, t, focal_length, principal_point );
     std::cout<<"R is "<<std::endl<<R<<std::endl;
     std::cout<<"t is "<<std::endl<<t<<std::endl;
 
-    Mat t_x = ( Mat_<double> ( 3,3 ) <<
-                                     0,                      -t.at<double> ( 2,0 ),     t.at<double> ( 1,0 ),
-            t.at<double> ( 2,0 ),      0,                      -t.at<double> ( 0,0 ),
-            -t.at<double> ( 1.0 ),     t.at<double> ( 0,0 ),      0 );
-
-    std::cout<<"t^R="<<std::endl<<t_x*R<<std::endl;
+//    Mat t_x = ( Mat_<double> ( 3,3 ) <<
+//                                     0,                      -t.at<double> ( 2,0 ),     t.at<double> ( 1,0 ),
+//            t.at<double> ( 2,0 ),      0,                      -t.at<double> ( 0,0 ),
+//            -t.at<double> ( 1.0 ),     t.at<double> ( 0,0 ),      0 );
+//
+//    std::cout<<"t^R="<<std::endl<<t_x*R<<std::endl;
 
 //    //-- 验证对极约束
 //    for ( DMatch m: matches )
@@ -561,7 +561,7 @@ bool BALProblem::initialization()
 //    }
 
     //std::vector<Point3d> triangulatedPoints;
-    //recoverPose( essential_matrix, points1, points2, K, R, t, 1000, mask , triangulatedPoints);
+    recoverPose( essential_matrix, points1, points2, K, R, t, 1000, mask , triangulatedPoints);
     Framebuf[1].noisyextrinsic.block<3,3>(0,0) = toMatrix3d(R);
     Framebuf[1].noisyextrinsic.block<3,1>(0,0) = toVector3d(t);
 

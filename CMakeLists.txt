@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.8)
 project(ceres_customBundle)
 
 find_package(Ceres REQUIRED)
-find_package(OpenCV 3 REQUIRED)
+find_package(OpenCV 3 REQUIRED  core calib3d)
 
 include(CheckCXXCompilerFlag)
 CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)

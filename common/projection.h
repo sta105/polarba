@@ -21,7 +21,8 @@ bool eigenprojector(const Vector3d normal,const Vector3d pt, int index , Frame& 
     camerapt.setOnes();
     camerapt.head(3) = pt;
     camerapt = frame.extrinsic * camerapt;
-    normalizedpt = camerapt.head(3)/camerapt(3);
+    normalizedpt = camerapt.segment<3>(0);
+    normalizedpt = normalizedpt/normalizedpt(2);
     uv = frame.intrinsic * normalizedpt;
     //std::cout<<"the projection: "<< uv.head(2).transpose()<<std::endl;
 

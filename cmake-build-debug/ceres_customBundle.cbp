@@ -1,256 +1,261 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <CodeBlocks_project_file>
-   <FileVersion major="1" minor="6" />
-   <Project>
-      <Option title="ceres_customBundle" />
-      <Option makefile_is_custom="1" />
-      <Option compiler="gcc" />
-      <Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\usr\;CMake Files\..\..\..\usr\local\;CMake Files\..\..\..\usr\local\lib\;CMake Files\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\usr\local\lib\cmake\Ceres\;CMake Files\..\..\..\usr\local\share\;CMake Files\..\..\..\usr\local\share\OpenCV\;" />
-      <Build>
-      <Target title="all">
-         <Option working_dir="/home/sicong/polar_ba/cmake-build-debug" />
-         <Option type="4" />
-         <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 all" />
-            <CompileFile command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-         </MakeCommands>
-      </Target>
-      <Target title="BALProblem">
-         <Option output="/home/sicong/polar_ba/cmake-build-debug/libBALProblem.so" prefix_auto="0" extension_auto="0" />
-         <Option working_dir="/home/sicong/polar_ba/cmake-build-debug" />
-         <Option object_output="./" />
-         <Option type="3" />
-         <Option compiler="gcc" />
-         <Compiler>
-            <Add directory="/home/sicong/polar_ba/common" />
-            <Add directory="/home/sicong/polar_ba/common/flags" />
-            <Add directory="/home/sicong/polar_ba/common/tools" />
-            <Add directory="/usr/include" />
-            <Add directory="/usr/include/c++/4.8" />
-            <Add directory="/usr/include/c++/4.8/backward" />
-            <Add directory="/usr/include/eigen3" />
-            <Add directory="/usr/include/x86_64-linux-gnu" />
-            <Add directory="/usr/include/x86_64-linux-gnu/c++/4.8" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
-            <Add directory="/usr/local/include" />
-            <Add directory="/usr/local/include/opencv" />
-         </Compiler>
-         <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 BALProblem" />
-            <CompileFile command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-         </MakeCommands>
-      </Target>
-      <Target title="BALProblem/fast">
-         <Option output="/home/sicong/polar_ba/cmake-build-debug/libBALProblem.so" prefix_auto="0" extension_auto="0" />
-         <Option working_dir="/home/sicong/polar_ba/cmake-build-debug" />
-         <Option object_output="./" />
-         <Option type="3" />
-         <Option compiler="gcc" />
-         <Compiler>
-            <Add directory="/home/sicong/polar_ba/common" />
-            <Add directory="/home/sicong/polar_ba/common/flags" />
-            <Add directory="/home/sicong/polar_ba/common/tools" />
-            <Add directory="/usr/include" />
-            <Add directory="/usr/include/c++/4.8" />
-            <Add directory="/usr/include/c++/4.8/backward" />
-            <Add directory="/usr/include/eigen3" />
-            <Add directory="/usr/include/x86_64-linux-gnu" />
-            <Add directory="/usr/include/x86_64-linux-gnu/c++/4.8" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
-            <Add directory="/usr/local/include" />
-            <Add directory="/usr/local/include/opencv" />
-         </Compiler>
-         <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 BALProblem/fast" />
-            <CompileFile command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-         </MakeCommands>
-      </Target>
-      <Target title="ParseCmd">
-         <Option output="/home/sicong/polar_ba/cmake-build-debug/libParseCmd.so" prefix_auto="0" extension_auto="0" />
-         <Option working_dir="/home/sicong/polar_ba/cmake-build-debug" />
-         <Option object_output="./" />
-         <Option type="3" />
-         <Option compiler="gcc" />
-         <Compiler>
-            <Add directory="/home/sicong/polar_ba/common" />
-            <Add directory="/home/sicong/polar_ba/common/flags" />
-            <Add directory="/home/sicong/polar_ba/common/tools" />
-            <Add directory="/usr/include" />
-            <Add directory="/usr/include/c++/4.8" />
-            <Add directory="/usr/include/c++/4.8/backward" />
-            <Add directory="/usr/include/eigen3" />
-            <Add directory="/usr/include/x86_64-linux-gnu" />
-            <Add directory="/usr/include/x86_64-linux-gnu/c++/4.8" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
-            <Add directory="/usr/local/include" />
-            <Add directory="/usr/local/include/opencv" />
-         </Compiler>
-         <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 ParseCmd" />
-            <CompileFile command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-         </MakeCommands>
-      </Target>
-      <Target title="ParseCmd/fast">
-         <Option output="/home/sicong/polar_ba/cmake-build-debug/libParseCmd.so" prefix_auto="0" extension_auto="0" />
-         <Option working_dir="/home/sicong/polar_ba/cmake-build-debug" />
-         <Option object_output="./" />
-         <Option type="3" />
-         <Option compiler="gcc" />
-         <Compiler>
-            <Add directory="/home/sicong/polar_ba/common" />
-            <Add directory="/home/sicong/polar_ba/common/flags" />
-            <Add directory="/home/sicong/polar_ba/common/tools" />
-            <Add directory="/usr/include" />
-            <Add directory="/usr/include/c++/4.8" />
-            <Add directory="/usr/include/c++/4.8/backward" />
-            <Add directory="/usr/include/eigen3" />
-            <Add directory="/usr/include/x86_64-linux-gnu" />
-            <Add directory="/usr/include/x86_64-linux-gnu/c++/4.8" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
-            <Add directory="/usr/local/include" />
-            <Add directory="/usr/local/include/opencv" />
-         </Compiler>
-         <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 ParseCmd/fast" />
-            <CompileFile command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-         </MakeCommands>
-      </Target>
-      <Target title="ceres_customBundle">
-         <Option output="/home/sicong/polar_ba/cmake-build-debug/ceres_customBundle" prefix_auto="0" extension_auto="0" />
-         <Option working_dir="/home/sicong/polar_ba/cmake-build-debug" />
-         <Option object_output="./" />
-         <Option type="1" />
-         <Option compiler="gcc" />
-         <Compiler>
-            <Add directory="/home/sicong/polar_ba/common" />
-            <Add directory="/home/sicong/polar_ba/common/flags" />
-            <Add directory="/home/sicong/polar_ba/common/tools" />
-            <Add directory="/usr/include" />
-            <Add directory="/usr/include/c++/4.8" />
-            <Add directory="/usr/include/c++/4.8/backward" />
-            <Add directory="/usr/include/eigen3" />
-            <Add directory="/usr/include/x86_64-linux-gnu" />
-            <Add directory="/usr/include/x86_64-linux-gnu/c++/4.8" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
-            <Add directory="/usr/local/include" />
-            <Add directory="/usr/local/include/opencv" />
-         </Compiler>
-         <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 ceres_customBundle" />
-            <CompileFile command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-         </MakeCommands>
-      </Target>
-      <Target title="ceres_customBundle/fast">
-         <Option output="/home/sicong/polar_ba/cmake-build-debug/ceres_customBundle" prefix_auto="0" extension_auto="0" />
-         <Option working_dir="/home/sicong/polar_ba/cmake-build-debug" />
-         <Option object_output="./" />
-         <Option type="1" />
-         <Option compiler="gcc" />
-         <Compiler>
-            <Add directory="/home/sicong/polar_ba/common" />
-            <Add directory="/home/sicong/polar_ba/common/flags" />
-            <Add directory="/home/sicong/polar_ba/common/tools" />
-            <Add directory="/usr/include" />
-            <Add directory="/usr/include/c++/4.8" />
-            <Add directory="/usr/include/c++/4.8/backward" />
-            <Add directory="/usr/include/eigen3" />
-            <Add directory="/usr/include/x86_64-linux-gnu" />
-            <Add directory="/usr/include/x86_64-linux-gnu/c++/4.8" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
-            <Add directory="/usr/local/include" />
-            <Add directory="/usr/local/include/opencv" />
-         </Compiler>
-         <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 ceres_customBundle/fast" />
-            <CompileFile command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-         </MakeCommands>
-      </Target>
-      <Target title="edit_cache">
-         <Option working_dir="/home/sicong/polar_ba/cmake-build-debug" />
-         <Option type="4" />
-         <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache" />
-            <CompileFile command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-         </MakeCommands>
-      </Target>
-      <Target title="rebuild_cache">
-         <Option working_dir="/home/sicong/polar_ba/cmake-build-debug" />
-         <Option type="4" />
-         <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache" />
-            <CompileFile command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/home/sicong/polar_ba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-         </MakeCommands>
-      </Target>
-      </Build>
-      <Unit filename="/home/sicong/polar_ba/ceresBundle.cpp">
-      </Unit>
-      <Unit filename="/home/sicong/polar_ba/common/BALProblem.cpp">
-      </Unit>
-      <Unit filename="/home/sicong/polar_ba/common/flags/command_args.cpp">
-      </Unit>
-      <Unit filename="/home/sicong/polar_ba/common/BALProblem.h">
-      </Unit>
-      <Unit filename="/home/sicong/polar_ba/common/flags/command_args.h">
-      </Unit>
-      <Unit filename="/home/sicong/polar_ba/CMakeLists.txt">
-          <Option virtualFolder="CMake Files\" />
-      </Unit>
-      <Unit filename="/home/sicong/polar_ba/../../../usr/local/lib/cmake/Ceres/CeresConfigVersion.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\lib\cmake\Ceres\" />
-      </Unit>
-      <Unit filename="/home/sicong/polar_ba/../../../usr/local/lib/cmake/Ceres/CeresConfig.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\lib\cmake\Ceres\" />
-      </Unit>
-      <Unit filename="/home/sicong/polar_ba/../../../usr/local/lib/cmake/Ceres/FindEigen.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\lib\cmake\Ceres\" />
-      </Unit>
-      <Unit filename="/home/sicong/polar_ba/../../../usr/local/lib/cmake/Ceres/FindGlog.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\lib\cmake\Ceres\" />
-      </Unit>
-      <Unit filename="/home/sicong/polar_ba/../../../usr/local/lib/cmake/Ceres/FindGflags.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\lib\cmake\Ceres\" />
-      </Unit>
-      <Unit filename="/home/sicong/polar_ba/../../../usr/local/lib/cmake/Ceres/CeresTargets.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\lib\cmake\Ceres\" />
-      </Unit>
-      <Unit filename="/home/sicong/polar_ba/../../../usr/local/lib/cmake/Ceres/CeresTargets-release.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\lib\cmake\Ceres\" />
-      </Unit>
-      <Unit filename="/home/sicong/polar_ba/../../../usr/local/share/OpenCV/OpenCVConfig-version.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\OpenCV\" />
-      </Unit>
-      <Unit filename="/home/sicong/polar_ba/../../../usr/local/share/OpenCV/OpenCVConfig.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\OpenCV\" />
-      </Unit>
-      <Unit filename="/home/sicong/polar_ba/../../../usr/local/share/OpenCV/OpenCVModules.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\OpenCV\" />
-      </Unit>
-      <Unit filename="/home/sicong/polar_ba/../../../usr/local/share/OpenCV/OpenCVModules-release.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\OpenCV\" />
-      </Unit>
-   </Project>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="ceres_customBundle"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\local\;CMake Files\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\usr\local\lib\cmake\Ceres\;CMake Files\..\..\..\..\usr\local\share\;CMake Files\..\..\..\..\usr\local\share\OpenCV\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/sicong/polarba/polarba/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/sicong/polarba/polarba/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ParseCmd">
+				<Option output="/home/sicong/polarba/polarba/cmake-build-debug/libParseCmd.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/sicong/polarba/polarba/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/include/opencv"/>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/home/sicong/polarba/polarba/common"/>
+					<Add directory="/home/sicong/polarba/polarba/common/tools"/>
+					<Add directory="/home/sicong/polarba/polarba/common/flags"/>
+					<Add directory="/usr/include/c++/4.8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/4.8"/>
+					<Add directory="/usr/include/c++/4.8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 ParseCmd"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ParseCmd/fast">
+				<Option output="/home/sicong/polarba/polarba/cmake-build-debug/libParseCmd.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/sicong/polarba/polarba/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/include/opencv"/>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/home/sicong/polarba/polarba/common"/>
+					<Add directory="/home/sicong/polarba/polarba/common/tools"/>
+					<Add directory="/home/sicong/polarba/polarba/common/flags"/>
+					<Add directory="/usr/include/c++/4.8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/4.8"/>
+					<Add directory="/usr/include/c++/4.8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 ParseCmd/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/sicong/polarba/polarba/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ceres_customBundle">
+				<Option output="/home/sicong/polarba/polarba/cmake-build-debug/ceres_customBundle" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/sicong/polarba/polarba/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/include/opencv"/>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/home/sicong/polarba/polarba/common"/>
+					<Add directory="/home/sicong/polarba/polarba/common/tools"/>
+					<Add directory="/home/sicong/polarba/polarba/common/flags"/>
+					<Add directory="/usr/include/c++/4.8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/4.8"/>
+					<Add directory="/usr/include/c++/4.8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 ceres_customBundle"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ceres_customBundle/fast">
+				<Option output="/home/sicong/polarba/polarba/cmake-build-debug/ceres_customBundle" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/sicong/polarba/polarba/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/include/opencv"/>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/home/sicong/polarba/polarba/common"/>
+					<Add directory="/home/sicong/polarba/polarba/common/tools"/>
+					<Add directory="/home/sicong/polarba/polarba/common/flags"/>
+					<Add directory="/usr/include/c++/4.8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/4.8"/>
+					<Add directory="/usr/include/c++/4.8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 ceres_customBundle/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="BALProblem">
+				<Option output="/home/sicong/polarba/polarba/cmake-build-debug/libBALProblem.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/sicong/polarba/polarba/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/include/opencv"/>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/home/sicong/polarba/polarba/common"/>
+					<Add directory="/home/sicong/polarba/polarba/common/tools"/>
+					<Add directory="/home/sicong/polarba/polarba/common/flags"/>
+					<Add directory="/usr/include/c++/4.8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/4.8"/>
+					<Add directory="/usr/include/c++/4.8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 BALProblem"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="BALProblem/fast">
+				<Option output="/home/sicong/polarba/polarba/cmake-build-debug/libBALProblem.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/sicong/polarba/polarba/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/include/opencv"/>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/home/sicong/polarba/polarba/common"/>
+					<Add directory="/home/sicong/polarba/polarba/common/tools"/>
+					<Add directory="/home/sicong/polarba/polarba/common/flags"/>
+					<Add directory="/usr/include/c++/4.8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/4.8"/>
+					<Add directory="/usr/include/c++/4.8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 BALProblem/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/sicong/polarba/polarba/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/sicong/polarba/polarba/ceresBundle.cpp">
+			<Option target="ceres_customBundle"/>
+		</Unit>
+		<Unit filename="/home/sicong/polarba/polarba/common/BALProblem.cpp">
+			<Option target="BALProblem"/>
+		</Unit>
+		<Unit filename="/home/sicong/polarba/polarba/common/BALProblem.h">
+			<Option target="BALProblem"/>
+		</Unit>
+		<Unit filename="/home/sicong/polarba/polarba/common/flags/command_args.cpp">
+			<Option target="ParseCmd"/>
+		</Unit>
+		<Unit filename="/home/sicong/polarba/polarba/common/flags/command_args.h">
+			<Option target="ParseCmd"/>
+		</Unit>
+		<Unit filename="/home/sicong/polarba/polarba/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/sicong/polarba/polarba/../../../../usr/local/lib/cmake/Ceres/CeresConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\cmake\Ceres\"/>
+		</Unit>
+		<Unit filename="/home/sicong/polarba/polarba/../../../../usr/local/lib/cmake/Ceres/CeresConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\cmake\Ceres\"/>
+		</Unit>
+		<Unit filename="/home/sicong/polarba/polarba/../../../../usr/local/lib/cmake/Ceres/FindEigen.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\cmake\Ceres\"/>
+		</Unit>
+		<Unit filename="/home/sicong/polarba/polarba/../../../../usr/local/lib/cmake/Ceres/FindGlog.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\cmake\Ceres\"/>
+		</Unit>
+		<Unit filename="/home/sicong/polarba/polarba/../../../../usr/local/lib/cmake/Ceres/FindGflags.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\cmake\Ceres\"/>
+		</Unit>
+		<Unit filename="/home/sicong/polarba/polarba/../../../../usr/local/lib/cmake/Ceres/CeresTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\cmake\Ceres\"/>
+		</Unit>
+		<Unit filename="/home/sicong/polarba/polarba/../../../../usr/local/lib/cmake/Ceres/CeresTargets-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\cmake\Ceres\"/>
+		</Unit>
+		<Unit filename="/home/sicong/polarba/polarba/../../../../usr/local/share/OpenCV/OpenCVConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/home/sicong/polarba/polarba/../../../../usr/local/share/OpenCV/OpenCVConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/home/sicong/polarba/polarba/../../../../usr/local/share/OpenCV/OpenCVModules.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/home/sicong/polarba/polarba/../../../../usr/local/share/OpenCV/OpenCVModules-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\OpenCV\"/>
+		</Unit>
+	</Project>
 </CodeBlocks_project_file>
