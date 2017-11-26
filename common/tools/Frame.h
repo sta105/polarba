@@ -42,6 +42,7 @@ public:
         h = 480;
         extrinsic.setIdentity();
         intrinsic.setIdentity();
+        noisyextrinsic.setIdentity();
         intrinsic(0,0) = 460; //fx
         intrinsic(1,1) = 460; //fy
         intrinsic(0,2) = 320; //cx

@@ -21,7 +21,7 @@ class BALProblem
 {
 public:
     BALProblem();
-    explicit BALProblem(const std::string& filename, bool use_quaternions = false){use_quaternions_ = use_quaternions;Framebuf.clear();pcbuf.clear();}
+    explicit BALProblem(const std::string& filename, bool use_quaternions = false){use_quaternions_ = use_quaternions;Framebuf.clear();gtpcbuf.clear();pcbuf.clear();}
     ~BALProblem(){
         delete[] point_index_;
         delete[] camera_index_;
@@ -35,7 +35,7 @@ public:
     void Normalize();
     void Datagenerator(const std::string& filename);
 
-    void Perturb(const double rotation_sigma,
+    void Perturbsfm(const double rotation_sigma,
                  const double translation_sigma,
                  const double point_sigma,
                 const double normal_sigma);
@@ -73,10 +73,13 @@ public:
     }
 
     bool initialization();
-    bool findmatches(const int i,const int j,std::vector<Point2d>& points1, std::vector<Point2d>& points2);
+    bool epnp();
+    bool findmatches(const int i,const int j,std::vector<Point2f>& points1, std::vector<Point2f>& points2);
 
     std::vector<Frame> Framebuf;
+    std::vector<P3d> gtpcbuf;
     std::vector<P3d> pcbuf;
+
 
 private:
     void CameraToAngelAxisAndCenter(const double* camera,

@@ -5,6 +5,8 @@
 #include <Eigen/Core>
 #include <Eigen/Geometry>
 #include "tools/Frame.h"
+#include "random.h"
+#include <random>
 
 // camera : 9 dims array with 
 // [0-2] : angle-axis rotation 
@@ -16,7 +18,7 @@
 bool eigenprojector(const Vector3d normal,const Vector3d pt, int index , Frame& frame){
     Vector4d camerapt;
     Vector3d normalizedpt;
-    Vector3d uv;
+    Vector3d uv,normal2d;
 
     camerapt.setOnes();
     camerapt.head(3) = pt;
@@ -24,6 +26,17 @@ bool eigenprojector(const Vector3d normal,const Vector3d pt, int index , Frame& 
     normalizedpt = camerapt.segment<3>(0);
     normalizedpt = normalizedpt/normalizedpt(2);
     uv = frame.intrinsic * normalizedpt;
+    normal2d = frame.extrinsic.block<3,3>(0,0).transpose() * normal;
+
+    // add some pertubation here!!!!!!!
+
+    std::default_random_engine generator;
+    std::normal_distribution<double> pixelnoise(0.0,1.0);
+    std::normal_distribution<double> anglenoise(0.0,5.0);
+    uv(0) += pixelnoise(generator);
+    uv(1) += pixelnoise(generator);
+
+
     //std::cout<<"the projection: "<< uv.head(2).transpose()<<std::endl;
 
     if((int)uv(0)<0&&(int)uv(0)>frame.h&&(int)uv(1)<0&&(int)uv(1)>frame.w)
@@ -31,6 +44,12 @@ bool eigenprojector(const Vector3d normal,const Vector3d pt, int index , Frame& 
         frame.projectionvalid = false;
         return false;
     }
+    frame.tmppixel.angle = acos(normal2d(0)/normal2d.head(2).norm());
+    frame.tmppixel.angle += anglenoise(generator);
+
+    if(frame.tmppixel.angle > M_PI) frame.tmppixel.angle = M_PI - 1e-8;
+    if(frame.tmppixel.angle < 0.0) frame.tmppixel.angle = 0.0;
+
     frame.tmppixel.coordinate[0] = int(uv(0));
     frame.tmppixel.coordinate[1] = int(uv(1));
     frame.tmppixel.ptindex = index;

@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/sicong/polarba/polarba/common/flags/command_args.cpp
+/home/sicong/polar_ba/common/flags/command_args.cpp
 command_args.h
-/home/sicong/polarba/polarba/common/flags/command_args.h
+/home/sicong/polar_ba/common/flags/command_args.h
 cstdlib
 -
 cstring
@@ -20,7 +20,7 @@ algorithm
 functional
 -
 
-/home/sicong/polarba/polarba/common/flags/command_args.h
+/home/sicong/polar_ba/common/flags/command_args.h
 string
 -
 vector

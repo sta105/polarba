@@ -6,9 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/home/sicong/polarba/polarba/common/BALProblem.cpp
+../common/tools/random.h
+math.h
+-
+stdlib.h
+-
+
+/home/sicong/polar_ba/common/BALProblem.cpp
 BALProblem.h
-/home/sicong/polarba/polarba/common/BALProblem.h
+/home/sicong/polar_ba/common/BALProblem.h
 cstdio
 -
 fstream
@@ -20,13 +26,15 @@ vector
 cmath
 -
 tools/random.h
-/home/sicong/polarba/polarba/common/tools/random.h
+/home/sicong/polar_ba/common/tools/random.h
 tools/rotation.h
-/home/sicong/polarba/polarba/common/tools/rotation.h
+/home/sicong/polar_ba/common/tools/rotation.h
 tools/random.h
-/home/sicong/polarba/polarba/common/tools/random.h
+/home/sicong/polar_ba/common/tools/random.h
 projection.h
-/home/sicong/polarba/polarba/common/projection.h
+/home/sicong/polar_ba/common/projection.h
+tools/triangulation.h
+/home/sicong/polar_ba/common/tools/triangulation.h
 opencv2/core/core.hpp
 -
 opencv2/features2d/features2d.hpp
@@ -36,7 +44,7 @@ opencv2/highgui/highgui.hpp
 opencv2/calib3d/calib3d.hpp
 -
 
-/home/sicong/polarba/polarba/common/BALProblem.h
+/home/sicong/polar_ba/common/BALProblem.h
 stdio.h
 -
 string
@@ -48,7 +56,7 @@ Eigen/Core
 Eigen/Geometry
 -
 tools/Frame.h
-/home/sicong/polarba/polarba/common/tools/Frame.h
+/home/sicong/polar_ba/common/tools/Frame.h
 opencv2/core/core.hpp
 -
 opencv2/features2d/features2d.hpp
@@ -58,32 +66,64 @@ opencv2/highgui/highgui.hpp
 opencv2/calib3d/calib3d.hpp
 -
 
-/home/sicong/polarba/polarba/common/projection.h
+/home/sicong/polar_ba/common/projection.h
 tools/rotation.h
-/home/sicong/polarba/polarba/common/tools/rotation.h
+/home/sicong/polar_ba/common/tools/rotation.h
 Eigen/Core
 -
 Eigen/Geometry
 -
 tools/Frame.h
-/home/sicong/polarba/polarba/common/tools/Frame.h
+/home/sicong/polar_ba/common/tools/Frame.h
+random.h
+/home/sicong/polar_ba/common/random.h
+random
+-
 
-/home/sicong/polarba/polarba/common/tools/Frame.h
+/home/sicong/polar_ba/common/tools/Frame.h
 Eigen/Core
 -
 
-/home/sicong/polarba/polarba/common/tools/random.h
+/home/sicong/polar_ba/common/tools/random.h
 math.h
 -
 stdlib.h
 -
 
-/home/sicong/polarba/polarba/common/tools/rotation.h
+/home/sicong/polar_ba/common/tools/rotation.h
 algorithm
 -
 cmath
 -
 limits
+-
+
+/home/sicong/polar_ba/common/tools/triangulation.h
+cstdio
+-
+fstream
+-
+string
+-
+vector
+-
+cmath
+-
+tools/random.h
+/home/sicong/polar_ba/common/tools/tools/random.h
+tools/rotation.h
+/home/sicong/polar_ba/common/tools/tools/rotation.h
+tools/random.h
+/home/sicong/polar_ba/common/tools/tools/random.h
+projection.h
+/home/sicong/polar_ba/common/tools/projection.h
+opencv2/core/core.hpp
+-
+opencv2/features2d/features2d.hpp
+-
+opencv2/highgui/highgui.hpp
+-
+opencv2/calib3d/calib3d.hpp
 -
 
 /usr/include/eigen3/Eigen/Cholesky
@@ -1809,16 +1849,6 @@ iostream
 -
 map
 -
-
-/usr/local/include/opencv2/flann/random.h
-algorithm
--
-cstdlib
--
-vector
--
-general.h
-/usr/local/include/opencv2/flann/general.h
 
 /usr/local/include/opencv2/flann/result_set.h
 algorithm

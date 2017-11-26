@@ -10,6 +10,7 @@
 #include "tools/rotation.h"
 #include "tools/random.h"
 #include "projection.h"
+#include "tools/triangulation.h"
 
 #include <opencv2/core/core.hpp>
 #include <opencv2/features2d/features2d.hpp>
@@ -71,6 +72,25 @@ Eigen::Matrix<double,3,3> toMatrix3d(const cv::Mat &cvMat3)
     return M;
 }
 
+Eigen::Matrix<double,3,3> MatdtoMatrix3d(const cv::Mat &cvMat3)
+{
+    Eigen::Matrix<double,3,3> M;
+
+    M << cvMat3.at<double>(0,0), cvMat3.at<double>(0,1), cvMat3.at<double>(0,2),
+            cvMat3.at<double>(1,0), cvMat3.at<double>(1,1), cvMat3.at<double>(1,2),
+            cvMat3.at<double>(2,0), cvMat3.at<double>(2,1), cvMat3.at<double>(2,2);
+
+    return M;
+}
+
+Eigen::Matrix<double,3,1> MatdtoVector3d(const cv::Mat &cvVector)
+{
+    Eigen::Matrix<double,3,1> v;
+    v << cvVector.at<double>(0), cvVector.at<double>(1), cvVector.at<double>(2);
+
+    return v;
+}
+
 void FscanfOrDie(FILE *fptr, const char *format, double *value){
         int num_scanned = fscanf(fptr, format, value);
         if(num_scanned != 1)
@@ -90,19 +110,12 @@ double Median(std::vector<double>* data){
   return *mid_point;
 }
 
-double get_rand(double min, double max)
-{
-    double range = max-min;
-    double p = RandDouble();
-    return min+p*range;
-}
-
 void cameragenerator(const Vector3d center, const double rad, const Vector3d lastcam, double disparity, Vector3d& result){
     Vector2d lasttheta,currenttheta;
     Vector3d lastvec;
     lastvec = lastcam - center;
     lasttheta(0) = acos(lastvec(2)/lastvec.norm());
-    if(isnan(lastvec(1)/lastvec(0))) lasttheta(1)= 0.0;
+    if(std::isnan(lastvec(1)/lastvec(0))) lasttheta(1)= 0.0;
     else lasttheta(1) = atan(lastvec(1)/lastvec(0));
     //std::cout<<"lasttheta:"<<lasttheta.transpose()<<std::endl;
     currenttheta(0) = lasttheta(0) + get_rand(disparity/2,disparity);//(RandDouble() * disparity/2) + disparity/2;
@@ -113,9 +126,9 @@ void cameragenerator(const Vector3d center, const double rad, const Vector3d las
     result(2) = rad * cos(currenttheta(0));
     result = result + center;
 
-    //std::cout<<" sphere error:"<<(result - center).norm() - rad<<std::endl;
+    std::cout<<" sphere error:"<<(result - center).norm() - rad<<std::endl;
 
-    //assert(abs((result - center).norm() - rad)<1e-5);
+    assert(abs((result - center).norm() - rad)<1e-5);
 }
 
 void posegenerator(const Matrix4d lastpose, const Vector3d center, const double rad, Matrix4d& currentpose){
@@ -151,7 +164,7 @@ void BALProblem::Datagenerator(const std::string& filename)
     // randomizing some camera poses;
     Frame firstframe;
     Framebuf.push_back(firstframe);
-    Vector3d spherecenter(0,0,3);
+    Vector3d spherecenter(0,0,5.0);
     for(int i=0;i<num_cameras_-1;i++){
         Frame polarframe;
         Matrix4d currentpose;
@@ -198,7 +211,7 @@ void BALProblem::Datagenerator(const std::string& filename)
                 }
             }
             pt3.pindex = validpt;
-            pcbuf.push_back(pt3);
+            gtpcbuf.push_back(pt3);
             validpt++;
         }
     }
@@ -480,7 +493,7 @@ void BALProblem::Normalize(){
   }
 }
 
-void BALProblem::Perturb(const double rotation_sigma, 
+void BALProblem::Perturbsfm(const double rotation_sigma,
                          const double translation_sigma,
                          const double point_sigma,
                         const double normal_sigma){
@@ -526,7 +539,7 @@ bool BALProblem::initialization()
     Mat R,t,mask;
     Matrix3d intrinsic = Framebuf[0].intrinsic;
     Mat K = toCvMat(intrinsic);
-    std::vector<Point2d> points1,points2;
+    std::vector<Point2f> points1,points2;
     points1.clear();
     points2.clear();
     findmatches(0,1,points1,points2);
@@ -538,39 +551,65 @@ bool BALProblem::initialization()
     std::cout<<"essential_matrix:\n"<<essential_matrix<<std::endl;
 
 
-    //recoverPose (essential_matrix, points1, points2, R, t, focal_length, principal_point );
-    std::cout<<"R is "<<std::endl<<R<<std::endl;
-    std::cout<<"t is "<<std::endl<<t<<std::endl;
+    recoverPose (essential_matrix, points1, points2, R, t, focal_length, principal_point );
 
-//    Mat t_x = ( Mat_<double> ( 3,3 ) <<
-//                                     0,                      -t.at<double> ( 2,0 ),     t.at<double> ( 1,0 ),
-//            t.at<double> ( 2,0 ),      0,                      -t.at<double> ( 0,0 ),
-//            -t.at<double> ( 1.0 ),     t.at<double> ( 0,0 ),      0 );
-//
-//    std::cout<<"t^R="<<std::endl<<t_x*R<<std::endl;
+    std::cout<<"initialization result:\n"<<R<<std::endl;
+    std::cout<<"translation:\n"<<t<<std::endl;
 
-//    //-- 验证对极约束
-//    for ( DMatch m: matches )
-//    {
-//        Point2d pt1 = pixel2cam ( keypoints_1[ m.queryIdx ].pt, K );
-//        Mat y1 = ( Mat_<double> ( 3,1 ) << pt1.x, pt1.y, 1 );
-//        Point2d pt2 = pixel2cam ( keypoints_2[ m.trainIdx ].pt, K );
-//        Mat y2 = ( Mat_<double> ( 3,1 ) << pt2.x, pt2.y, 1 );
-//        Mat d = y2.t() * t_x * R * y1;
-//        std::cout << "epipolar constraint = " << d << std::endl;
-//    }
+    std::vector<Point3f> triangulatedPoints;
+    triangulatedPoints.clear();
+    //recoverPose( essential_matrix, points1, points2, K, R, t, 1000, mask , triangulatedPoints);
+    Framebuf[1].noisyextrinsic.block<3,3>(0,0) = MatdtoMatrix3d(R);
+    Framebuf[1].noisyextrinsic.block<3,1>(0,3) = MatdtoVector3d(t);
 
-    //std::vector<Point3d> triangulatedPoints;
-    recoverPose( essential_matrix, points1, points2, K, R, t, 1000, mask , triangulatedPoints);
-    Framebuf[1].noisyextrinsic.block<3,3>(0,0) = toMatrix3d(R);
-    Framebuf[1].noisyextrinsic.block<3,1>(0,0) = toVector3d(t);
+    triangulation(points1, points2, R, t, K, triangulatedPoints);
+
+    for(int i=0;i<triangulatedPoints.size();i++)
+    {
+        P3d addpt;
+        addpt.xyz    = toVector3d(triangulatedPoints.[i]);
+        addpt.normal = Vector3d(0,0,1); // to be added;
+        addpt.pindex = 0;//to be added;
+        pcbuf.push_back(addpt);
+    }
 
 
+    std::ofstream of2("intial.ply");
+
+    of2<< "ply"
+       << '\n' << "format ascii 1.0"
+       << '\n' << "element vertex " << triangulatedPoints.size()+2
+       << '\n' << "property float x"
+       << '\n' << "property float y"
+       << '\n' << "property float z"
+       << '\n' << "property uchar red"
+       << '\n' << "property uchar green"
+       << '\n' << "property uchar blue"
+       << '\n' << "end_header" << std::endl;
+
+    std::cout<<"print "<<triangulatedPoints.size()<<" points"<<std::endl;
+    // Export the structure (i.e. 3D Points) as white points.
+    of2 << 0 << ' '<< 0 <<' '<< 0 <<' ';
+    of2 << "255 255 255\n";
+
+    Matrix3d cam1rot = Framebuf[1].noisyextrinsic.block<3,3>(0,0);
+    Vector3d cam1trans = Framebuf[1].noisyextrinsic.block<3,1>(0,3);
+
+    Vector3d cam1center = -1.0 * cam1rot.transpose() * cam1trans;
+    //std::cout<<"the first cam center is :"<<cam1center.transpose()<<std::endl;
+
+    of2 << cam1center(0) << ' '<< cam1center(1) <<' '<< cam1center(2) <<' ';
+        of2 << "255 255 255\n";
+    for(int i = 0; i < triangulatedPoints.size(); ++i){
+        of2 << triangulatedPoints[i].x << ' '<< triangulatedPoints[i].y <<' '<< triangulatedPoints[i].z <<' ';
+        of2 << "0 0 255\n";
+    }
+    of2.close();
 
     return true;
 }
 
-bool BALProblem::findmatches(const int indexi,const int indexj,std::vector<Point2d>& points1,std::vector<Point2d>& points2)
+bool BALProblem::findmatches(const int indexi,const int indexj,std::vector<Point2f>& points1,std::vector<Point2f>& points2)
 {
     if(indexi>=Framebuf.size()&&indexj>=Framebuf.size())return false;
 
@@ -580,8 +619,8 @@ bool BALProblem::findmatches(const int indexi,const int indexj,std::vector<Point
         {
             if(obs1.ptindex == obs2.ptindex)
             {
-                Point2d point1(obs1.coordinate[0],obs1.coordinate[1]);
-                Point2d point2(obs2.coordinate[0],obs2.coordinate[1]);
+                Point2f point1(obs1.coordinate[0],obs1.coordinate[1]);
+                Point2f point2(obs2.coordinate[0],obs2.coordinate[1]);
                 points1.push_back(point1);
                 points2.push_back(point2);
                 break;
@@ -589,5 +628,12 @@ bool BALProblem::findmatches(const int indexi,const int indexj,std::vector<Point
 
         }
     }
+    return true;
+}
+
+
+bool BALProblem::epnp()
+{
+
     return true;
 }

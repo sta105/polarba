@@ -23,4 +23,11 @@ inline double RandNormal()
     return x1 * w;
 }
 
+double get_rand(double min, double max)
+{
+    double range = max-min;
+    double p = RandDouble();
+    return min+p*range;
+}
+
 #endif // random.h
