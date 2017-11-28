@@ -73,8 +73,13 @@ public:
     }
 
     bool initialization();
-    bool epnp();
-    bool findmatches(const int i,const int j,std::vector<Point2f>& points1, std::vector<Point2f>& points2);
+    bool epnp(const int referenceindex);
+    bool findmatches(const int i,const int j,std::vector<Point2f>& points1, std::vector<Point2f>& points2,std::vector<std::pair<pixel*,pixel*>>& matchpairlist,const bool iftriangulated);
+    void verifytriangulation( const std::vector< Point2f >& pts2d_1,
+                                          const std::vector< Point2f >& pts2d_2,
+                                          const Mat& R, const Mat& t, const Mat& K,
+                                          const std::vector< Point3f >& points,const std::vector<std::pair <pixel*, pixel*>> matchpairlist, Mat& mask);
+    const bool ifinitial() {return ifinitialized;}
 
     std::vector<Frame> Framebuf;
     std::vector<P3d> gtpcbuf;
@@ -102,6 +107,7 @@ private:
     double* parameters_; 
     double* normal3d;
     double* point3d;
+    bool ifinitialized = false;
 };
 
 void cameragenerator(const Vector3d center, const double rad, const Vector3d lastcam, double disparity, Vector3d& result);

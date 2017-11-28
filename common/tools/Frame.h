@@ -29,9 +29,10 @@ public:
     int coordinate[2]; //first two are for image coordinate
     double angle;      // azu angle
     int ptindex;
-    P3d p3d;
+    P3d *p3d;
     double* worldpt;
     double* camerapt;
+    bool triangulated = false;
 };
 
 

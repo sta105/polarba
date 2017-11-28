@@ -542,35 +542,59 @@ bool BALProblem::initialization()
     std::vector<Point2f> points1,points2;
     points1.clear();
     points2.clear();
-    findmatches(0,1,points1,points2);
+    vector<pair <pixel*, pixel*>> matchpairlist;
+    findmatches(0,1,points1,points2,matchpairlist,false);
     std::cout<<"how many matches found:"<<points1.size()<<std::endl;
     Point2d principal_point ( intrinsic(0,2), intrinsic(1,2) );
     double focal_length = intrinsic(0,0);
 
-    Mat essential_matrix = findEssentialMat( points1, points2, focal_length , principal_point, RANSAC );
+
+
+//    CV_EXPORTS_W Mat findEssentialMat( InputArray points1, InputArray points2,
+//                                       double focal = 1.0, Point2d pp = Point2d(0, 0),
+//                                       int method = RANSAC, double prob = 0.999,
+//                                       double threshold = 1.0, OutputArray mask = noArray() );
+
+
+    Mat essential_matrix = findEssentialMat( points1, points2, focal_length , principal_point, RANSAC, 0.999, 1.0, mask );
     std::cout<<"essential_matrix:\n"<<essential_matrix<<std::endl;
 
+//    CV_EXPORTS_W int recoverPose( InputArray E, InputArray points1, InputArray points2,
+//                                  OutputArray R, OutputArray t,
+//                                  double focal = 1.0, Point2d pp = Point2d(0, 0),
+//                                  InputOutputArray mask = noArray() );
 
-    recoverPose (essential_matrix, points1, points2, R, t, focal_length, principal_point );
 
+
+    recoverPose (essential_matrix, points1, points2, R, t, focal_length, principal_point, mask);
+
+    std::cout<<"inlier list:"<<mask.size<<std::endl;
     std::cout<<"initialization result:\n"<<R<<std::endl;
     std::cout<<"translation:\n"<<t<<std::endl;
 
     std::vector<Point3f> triangulatedPoints;
     triangulatedPoints.clear();
-    //recoverPose( essential_matrix, points1, points2, K, R, t, 1000, mask , triangulatedPoints);
     Framebuf[1].noisyextrinsic.block<3,3>(0,0) = MatdtoMatrix3d(R);
     Framebuf[1].noisyextrinsic.block<3,1>(0,3) = MatdtoVector3d(t);
 
-    triangulation(points1, points2, R, t, K, triangulatedPoints);
+    triangulation(points1, points2, R, t, K, triangulatedPoints,matchpairlist);
 
     for(int i=0;i<triangulatedPoints.size();i++)
     {
+        if(mask.at<int>(i,0) == 0)
+        {
+            std::cout<<"outlier!"<<std::endl;
+            continue;
+        }
+        matchpairlist[i].first->triangulated = true;
+        matchpairlist[i].second->triangulated = true;
         P3d addpt;
-        addpt.xyz    = toVector3d(triangulatedPoints.[i]);
+        addpt.xyz    = toVector3d(triangulatedPoints[i]);
         addpt.normal = Vector3d(0,0,1); // to be added;
         addpt.pindex = 0;//to be added;
         pcbuf.push_back(addpt);
+        matchpairlist[i].first->p3d = &(pcbuf.back());
+        matchpairlist[i].second->p3d = &(pcbuf.back());
     }
 
 
@@ -605,24 +629,29 @@ bool BALProblem::initialization()
         of2 << "0 0 255\n";
     }
     of2.close();
-
+    ifinitialized = true;
     return true;
 }
 
-bool BALProblem::findmatches(const int indexi,const int indexj,std::vector<Point2f>& points1,std::vector<Point2f>& points2)
+bool BALProblem::findmatches(const int indexi,const int indexj,std::vector<Point2f>& points1,std::vector<Point2f>& points2,std::vector<pair<pixel*,pixel*>>& matchpairlist,const bool iftriangulated)
 {
-    if(indexi>=Framebuf.size()&&indexj>=Framebuf.size())return false;
-
+    std::cout<<"indexi: "<< indexi<< " indexj: " << indexj<<std::endl;
+    if((indexi>=Framebuf.size())&&(indexj>=Framebuf.size()))return false;
+    std::cout<<"indexi: "<< indexi<< " indexj: " << indexj<<std::endl;
     for(auto obs1 : Framebuf[indexi].obs)
     {
         for(auto obs2 : Framebuf[indexj].obs)
         {
-            if(obs1.ptindex == obs2.ptindex)
+            if(obs1.ptindex == obs2.ptindex&&(obs1.triangulated== iftriangulated)&&(obs2.triangulated == false)) // observe the same untriangulated point
             {
                 Point2f point1(obs1.coordinate[0],obs1.coordinate[1]);
                 Point2f point2(obs2.coordinate[0],obs2.coordinate[1]);
                 points1.push_back(point1);
                 points2.push_back(point2);
+                pair<pixel*,pixel*> matchpair;
+                matchpair.first = &obs1;
+                matchpair.second = &obs2;
+                matchpairlist.push_back(matchpair);
                 break;
             }
 
@@ -632,8 +661,74 @@ bool BALProblem::findmatches(const int indexi,const int indexj,std::vector<Point
 }
 
 
-bool BALProblem::epnp()
+bool BALProblem::epnp(const int referenceindex)
 {
+    Mat r,t,mask;
+    Matrix3d intrinsic = Framebuf[referenceindex].intrinsic;
+    Mat K = toCvMat(intrinsic);
+    Point2d principal_point ( intrinsic(0,2), intrinsic(1,2) );
+
+    std::vector<Point2f> points1,points2;
+    vector<pair <pixel*, pixel*>> matchpairlist ;
+    findmatches(referenceindex,referenceindex+1,points1,points2,matchpairlist,true);
+
+    std::vector<Point3f> points1_3d;
+    for(auto p2d : matchpairlist){
+        points1_3d.push_back(Point3f(p2d.first->p3d->xyz(0),p2d.first->p3d->xyz(1),p2d.first->p3d->xyz(2)));
+    }
+    solvePnP(points1_3d,points2,K,Mat(),r,t,false,cv::SOLVEPNP_EPNP);
+
+    solvePnPRansac( points1_3d, points2,
+                    K, Mat(),
+                    r, t,
+                    false, 100,
+                    8.0, 0.99,
+                    mask,SOLVEPNP_ITERATIVE );
+    Mat R;
+    cv::Rodrigues(r,R);
+
+    Framebuf[referenceindex+1].noisyextrinsic.block<3,3>(0,0) = MatdtoMatrix3d(R);
+    Framebuf[referenceindex+1].noisyextrinsic.block<3,1>(0,3) = MatdtoVector3d(t);
+
+    for(int i=0;i< matchpairlist.size();i++){
+        if(mask.at<int>(i,0) == 0) continue;
+        matchpairlist[i].second->triangulated = true;
+        matchpairlist[i].second->p3d = matchpairlist[i].first->p3d;
+    }
+
+// ================================find new points to be triangulated========================================
+    std::vector<Point3f> triangulatedPoints;
+    triangulatedPoints.clear();
+    std::vector<Point2f> newpoints1,newpoints2;
+    vector<pair <pixel*, pixel*>> newmatchpairlist ;
+    findmatches(referenceindex,referenceindex+1,newpoints1,newpoints2,newmatchpairlist,false);
+
+
+    triangulation(points1, points2, R, t, K, triangulatedPoints,newmatchpairlist);
+
+    verifytriangulation(points1, points2, R, t, K, triangulatedPoints,matchpairlist,mask);
+
+    for(int i=0;i<triangulatedPoints.size();i++)
+    {
+        if(mask.at<int>(i,0) == 0)continue;
+        newmatchpairlist[i].first->triangulated = true;
+        newmatchpairlist[i].second->triangulated = true;
+        P3d addpt;
+        addpt.xyz    = toVector3d(triangulatedPoints[i]);
+        addpt.normal = Vector3d(0,0,1); // to be added;
+        addpt.pindex = 0;//to be added;
+        pcbuf.push_back(addpt);
+        matchpairlist[i].first->p3d = &(pcbuf.back());
+        matchpairlist[i].second->p3d = &(pcbuf.back());
+    }
 
     return true;
+}
+
+void BALProblem::verifytriangulation( const vector< Point2f >& pts2d_1,
+                          const vector< Point2f >& pts2d_2,
+                          const Mat& R, const Mat& t, const Mat& K,
+                          const vector< Point3f >& points,vector<pair <pixel*, pixel*>> matchpairlist, Mat& mask)
+{
+    return;
 }

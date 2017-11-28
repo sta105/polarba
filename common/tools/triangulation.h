@@ -34,7 +34,7 @@ void triangulation (
         const vector<Point2f>& point_1,
         const vector<Point2f>& point_2,
         const Mat& R, const Mat& t, const Mat& K,
-        vector<Point3f>& points
+        vector<Point3f>& points,vector<pair <pixel*, pixel*>> matchpairlist
 );
 
 Point2f pixel2cam ( const Point2f& p, const Mat& K );
@@ -43,7 +43,7 @@ void triangulation (
         const vector< Point2f >& pts2d_1,
         const vector< Point2f >& pts2d_2,
         const Mat& R, const Mat& t, const Mat& K,
-        vector< Point3f >& points )
+        vector< Point3f >& points,vector<pair <pixel*, pixel*>> matchpairlist )
 {
     Mat T1 = (Mat_<float> (3,4) <<
                                 1,0,0,0,
@@ -83,8 +83,7 @@ void triangulation (
                 x.at<float>(1,0),
                 x.at<float>(2,0)
         );
-        //std::cout<<"p: "<< p.x << " "<< p.y <<" "<<p.z<< std::endl;
-        points.push_back( p );
+        points.push_back(p);
     }
 }
 

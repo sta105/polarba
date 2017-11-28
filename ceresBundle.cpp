@@ -172,7 +172,17 @@ void SolveProblem(const char* filename, const BundleParams& params)
     }
 
     bal_problem.initialization();
-    bal_problem.epnp();
+
+    int tripts = 0;
+    for(int i=0;i<bal_problem.Framebuf[0].obs.size();i++)
+    {
+        if(bal_problem.Framebuf[0].obs[i].triangulated == 1)tripts++;
+    }
+    std::cout<<"triangulated points in initialization: "<<tripts<<std::endl;
+    for(int i=1;i<bal_problem.Framebuf.size();i++)
+    {
+        bal_problem.epnp(i);
+    }
 
     // show some information here ...
     std::cout << "bal problem file loaded..." << std::endl;
