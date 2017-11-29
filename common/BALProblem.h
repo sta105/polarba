@@ -52,9 +52,9 @@ public:
     const double* observations()        const{ return observations_;             }
     const double* parameters()          const{ return parameters_;               }
     const double* cameras()             const{ return parameters_;               }
-    const double* points()              const{ return parameters_ + camera_block_size() * num_cameras_; }
+    const double* points()              const{ return parameters_ + camera_block_size() * processedframe; }
     double* mutable_cameras()                { return parameters_;               }
-    double* mutable_points()                 { return parameters_ + camera_block_size() * num_cameras_; }
+    double* mutable_points()                 { return parameters_ + camera_block_size() * processedframe; }
 
     double* mutable_camera_for_observation(int i){
         return mutable_cameras() + camera_index_[i] * camera_block_size();
