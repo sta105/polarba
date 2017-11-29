@@ -715,9 +715,9 @@ bool BALProblem::epnp(const int referenceindex)
     findmatches(referenceindex,referenceindex+1,newpoints1,newpoints2,newmatchpairlist,false);
 
 
-    triangulation(points1, points2, R, t, K, triangulatedPoints,newmatchpairlist);
+    triangulation(newpoints1, newpoints2, R, t, K, triangulatedPoints,newmatchpairlist);
 
-    verifytriangulation(points1, points2, R, t, K, triangulatedPoints,newmatchpairlist,mask);
+    verifytriangulation(newpoints1, newpoints2, R, t, K, triangulatedPoints,newmatchpairlist,mask);
 
     for(int i=0;i<triangulatedPoints.size();i++)
     {
@@ -749,10 +749,10 @@ void BALProblem::verifytriangulation( const vector< Point2f >& pts2d_1,
 
 void BALProblem::preprocess()
 {
-    delete[] point_index_;
-    delete[] camera_index_;
-    delete[] observations_;
-    delete[] parameters_;
+//    delete[] point_index_;
+//    delete[] camera_index_;
+//    delete[] observations_;
+//    delete[] parameters_;
 
     num_observations_ = 0;
     num_parameters_ = 6 * processedframe + 6 * pcbuf.size(); // here we don't optimize the intrinsic
@@ -775,7 +775,7 @@ void BALProblem::preprocess()
         Eigen::Matrix4d pose = Framebuf[i].noisyextrinsic;
         Eigen::AngleAxisd currentrot(pose.block<3,3>(0,0));
         Eigen::Vector3d axisvec = currentrot.angle() * currentrot.axis();
-        std::cout<<"Pose "<<i<<" :\n"<<pose<<std::endl;
+        //std::cout<<"Pose "<<i<<" :\n"<<pose<<std::endl;
         parameters_[i*6+0] = axisvec(0); // this is wrong, need to reset the rotaxis later
         parameters_[i*6+1] = axisvec(1);
         parameters_[i*6+2] = axisvec(2);

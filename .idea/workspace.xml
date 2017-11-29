@@ -13,22 +13,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d1890a7-1514-47f1-b7f4-716514eb4599" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BALProblem.dir/common/BALProblem.cpp.o" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ceres_customBundle.dir/ceresBundle.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ceres_customBundle.dir/ceresBundle.cpp.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/ceres_customBundle" afterPath="$PROJECT_DIR$/cmake-build-debug/ceres_customBundle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/libBALProblem.so" afterPath="$PROJECT_DIR$/cmake-build-debug/libBALProblem.so" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ceresBundle.cpp" afterPath="$PROJECT_DIR$/ceresBundle.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/eigen.ply" afterPath="$PROJECT_DIR$/cmake-build-debug/eigen.ply" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/intial.ply" afterPath="$PROJECT_DIR$/cmake-build-debug/intial.ply" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/projection.ply" afterPath="$PROJECT_DIR$/cmake-build-debug/projection.ply" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/BALProblem.cpp" afterPath="$PROJECT_DIR$/common/BALProblem.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/BALProblem.h" afterPath="$PROJECT_DIR$/common/BALProblem.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/projection.h" afterPath="$PROJECT_DIR$/common/projection.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/tools/Frame.h" afterPath="$PROJECT_DIR$/common/tools/Frame.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/tools/triangulation.h" afterPath="$PROJECT_DIR$/common/tools/triangulation.h" />
-    </list>
+    <list default="true" id="7d1890a7-1514-47f1-b7f4-716514eb4599" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -43,8 +28,8 @@
       <file leaf-file-name="BALProblem.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/common/BALProblem.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="698">
-              <caret line="805" column="0" lean-forward="true" selection-start-line="805" selection-start-column="0" selection-end-line="805" selection-end-column="0" />
+            <state relative-caret-position="313">
+              <caret line="762" column="62" lean-forward="true" selection-start-line="762" selection-start-column="62" selection-end-line="762" selection-end-column="62" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -62,26 +47,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stl_pair.h" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/include/c++/4.8/bits/stl_pair.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="100" column="10" lean-forward="false" selection-start-line="100" selection-start-column="10" selection-end-line="100" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ostream" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/include/c++/4.8/ostream">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="564" column="0" lean-forward="false" selection-start-line="564" selection-start-column="0" selection-end-line="564" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="triangulation.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/common/tools/triangulation.h">
           <provider selected="true" editor-type-id="text-editor">
@@ -94,11 +59,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Frame.h" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Frame.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/common/tools/Frame.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="499">
-              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state relative-caret-position="119">
+              <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BundleParams.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/BundleParams.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="559">
+              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -109,6 +84,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="401">
               <caret line="45" column="26" lean-forward="false" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="random.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/tools/random.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="419">
+              <caret line="29" column="23" lean-forward="true" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -126,11 +111,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ceresBundle.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ceresBundle.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ceresBundle.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2003">
-              <caret line="70" column="1" lean-forward="false" selection-start-line="70" selection-start-column="1" selection-end-line="70" selection-end-column="1" />
+            <state relative-caret-position="199">
+              <caret line="87" column="71" lean-forward="false" selection-start-line="87" selection-start-column="71" selection-end-line="87" selection-end-column="71" />
               <folding />
             </state>
           </provider>
@@ -139,8 +124,8 @@
       <file leaf-file-name="BALProblem.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/common/BALProblem.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="86" column="18" lean-forward="false" selection-start-line="86" selection-start-column="18" selection-end-line="86" selection-end-column="18" />
+            <state relative-caret-position="199">
+              <caret line="47" column="8" lean-forward="true" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="26" />
               <folding>
                 <element signature="e#43#61#0" expanded="true" />
               </folding>
@@ -152,9 +137,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>the projection:</find>
-      <find>BALProblem</find>
-      <find>intrinsic</find>
       <find>main</find>
       <find>WriteToPLYFile</find>
       <find>frame pose:</find>
@@ -179,9 +161,12 @@
       <find>initialization()</find>
       <find>triangulation</find>
       <find>mask</find>
-      <find>epnp</find>
       <find>pixel</find>
+      <find>preprocess</find>
+      <find>epnp</find>
       <find>init</find>
+      <find>num_observations_</find>
+      <find>num_observations()</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -201,10 +186,10 @@
         <option value="$PROJECT_DIR$/common/tools/random.h" />
         <option value="$PROJECT_DIR$/common/projection.h" />
         <option value="$PROJECT_DIR$/common/tools/triangulation.h" />
-        <option value="$PROJECT_DIR$/common/BALProblem.h" />
+        <option value="$PROJECT_DIR$/common/tools/Frame.h" />
         <option value="$PROJECT_DIR$/ceresBundle.cpp" />
         <option value="$PROJECT_DIR$/common/BALProblem.cpp" />
-        <option value="$PROJECT_DIR$/common/tools/Frame.h" />
+        <option value="$PROJECT_DIR$/common/BALProblem.h" />
       </list>
     </option>
   </component>
@@ -544,24 +529,23 @@
       <option name="presentableId" value="Default" />
       <updated>1511418584946</updated>
       <workItem from="1511418586359" duration="55965000" />
-      <workItem from="1511677981938" duration="26548000" />
+      <workItem from="1511677981938" duration="29436000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98782000" />
+    <option name="totallyTimeSpent" value="101670000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1985" y="-4" width="1855" height="1084" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3268817" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3268817" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32795697" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32795697" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25262576" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -874,22 +858,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/tools/random.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="29" column="23" lean-forward="true" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/BundleParams.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/include/opencv2/calib3d.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="499">
@@ -914,14 +882,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/tools/rotation.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="45" column="26" lean-forward="false" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/include/c++/4.8/bits/stl_vector.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
@@ -940,24 +900,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/BALProblem.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="86" column="18" lean-forward="false" selection-start-line="86" selection-start-column="18" selection-end-line="86" selection-end-column="18" />
-          <folding>
-            <element signature="e#43#61#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ceresBundle.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2003">
-          <caret line="70" column="1" lean-forward="false" selection-start-line="70" selection-start-column="1" selection-end-line="70" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common/projection.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
@@ -968,20 +910,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/common/tools/Frame.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/BundleParams.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="559">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/tools/random.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="29" column="23" lean-forward="true" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/tools/rotation.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="45" column="26" lean-forward="false" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/common/BALProblem.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="698">
-          <caret line="805" column="0" lean-forward="true" selection-start-line="805" selection-start-column="0" selection-end-line="805" selection-end-column="0" />
+        <state relative-caret-position="313">
+          <caret line="762" column="62" lean-forward="true" selection-start-line="762" selection-start-column="62" selection-end-line="762" selection-end-column="62" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/tools/Frame.h">
+    <entry file="file://$PROJECT_DIR$/common/BALProblem.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state relative-caret-position="199">
+          <caret line="47" column="8" lean-forward="true" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="26" />
+          <folding>
+            <element signature="e#43#61#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ceresBundle.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="87" column="71" lean-forward="false" selection-start-line="87" selection-start-column="71" selection-end-line="87" selection-end-column="71" />
           <folding />
         </state>
       </provider>

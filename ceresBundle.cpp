@@ -182,8 +182,8 @@ void SolveProblem(const char* filename, const BundleParams& params)
     for(int i=1;i<bal_problem.Framebuf.size();i++)
     {
         bal_problem.epnp(i);
-        bal_problem.preprocess();
     }
+    bal_problem.preprocess();
 
     // show some information here ...
     std::cout << "bal problem file loaded..." << std::endl;
