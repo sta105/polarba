@@ -41,10 +41,10 @@ public:
                 const double normal_sigma);
     
     
-    int camera_block_size()             const{ return use_quaternions_? 10 : 9;  }
+    int camera_block_size()             const{ return use_quaternions_? 7 : 6;   }
     int point_block_size()              const{ return 6;                         }
-    int num_cameras()                   const{ return num_cameras_;              }
-    int num_points()                    const{ return num_points_;               }
+    int num_cameras()                   const{ return processedframe;              }
+    int num_points()                    const{ return pcbuf.size();               }
     int num_observations()              const{ return num_observations_;         }
     int num_parameters()                const{ return num_parameters_;           }
     const int* point_index()            const{ return point_index_;              }
@@ -71,8 +71,10 @@ public:
     const double* point_for_observation(int i)const {
         return points() + point_index_[i] * point_block_size();
     }
+    const int get_processedframe()const{ return  processedframe;}
 
     bool initialization();
+    void preprocess();
     bool epnp(const int referenceindex);
     bool findmatches(const int i,const int j,std::vector<Point2f>& points1, std::vector<Point2f>& points2,std::vector<std::pair<pixel*,pixel*>>& matchpairlist,const bool iftriangulated);
     void verifytriangulation( const std::vector< Point2f >& pts2d_1,
@@ -108,6 +110,7 @@ private:
     double* normal3d;
     double* point3d;
     bool ifinitialized = false;
+    int processedframe = 0;
 };
 
 void cameragenerator(const Vector3d center, const double rad, const Vector3d lastcam, double disparity, Vector3d& result);

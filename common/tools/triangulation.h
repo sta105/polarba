@@ -67,6 +67,7 @@ void triangulation (
 //        std::cout<<std::endl;
     }
 
+    if(pts_1.size()==0) return;
     Mat pts_4f;
 //    std::cout<<"T1:\n"<<T1<<std::endl;
 //    std::cout<<"T2:\n"<<T2<<std::endl;

@@ -8,17 +8,8 @@
 #include <Eigen/Core>
 
 using namespace Eigen;
-
-class P3d{
-public:
-    P3d(){sharedcam.clear();};
-    P3d(Vector3d _xyz, Vector3d _normal):xyz(_xyz),normal(_normal){sharedcam.clear();};
-    //~P3d();
-    int pindex;
-    Vector3d xyz;
-    Vector3d normal;
-    std::vector<int> sharedcam;
-};
+class P3d;
+class pixel;
 
 class pixel {
 public:
@@ -33,6 +24,19 @@ public:
     double* worldpt;
     double* camerapt;
     bool triangulated = false;
+    int cameraindex;
+};
+
+class P3d{
+public:
+    P3d(){sharedcam.clear();};
+    P3d(Vector3d _xyz, Vector3d _normal):xyz(_xyz),normal(_normal){sharedcam.clear();};
+    //~P3d();
+    int pindex;
+    Vector3d xyz;
+    Vector3d normal;
+    std::vector<int> sharedcam;
+    std::vector<pixel*> obs;
 };
 
 
@@ -60,6 +64,7 @@ public:
     pixel tmppixel; // the observation to be inserted
 
     bool projectionvalid;
+    int camindex;
 };
 
 

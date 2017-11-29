@@ -158,8 +158,7 @@ void posegenerator(const Matrix4d lastpose, const Vector3d center, const double 
 void BALProblem::Datagenerator(const std::string& filename)
 {
     num_cameras_ = 4;
-    num_points_ = 500;
-    num_observations_ = num_points_ * num_cameras_;
+    num_points_  = 500;
 
     // randomizing some camera poses;
     Frame firstframe;
@@ -592,6 +591,8 @@ bool BALProblem::initialization()
         addpt.xyz    = toVector3d(triangulatedPoints[i]);
         addpt.normal = Vector3d(0,0,1); // to be added;
         addpt.pindex = 0;//to be added;
+        addpt.obs.push_back(matchpairlist[i].first);
+        addpt.obs.push_back(matchpairlist[i].second);
         pcbuf.push_back(addpt);
         matchpairlist[i].first->p3d = &(pcbuf.back());
         matchpairlist[i].second->p3d = &(pcbuf.back());
@@ -630,27 +631,28 @@ bool BALProblem::initialization()
     }
     of2.close();
     ifinitialized = true;
+    processedframe = 2;
     return true;
 }
 
 bool BALProblem::findmatches(const int indexi,const int indexj,std::vector<Point2f>& points1,std::vector<Point2f>& points2,std::vector<pair<pixel*,pixel*>>& matchpairlist,const bool iftriangulated)
 {
-    std::cout<<"indexi: "<< indexi<< " indexj: " << indexj<<std::endl;
     if((indexi>=Framebuf.size())&&(indexj>=Framebuf.size()))return false;
-    std::cout<<"indexi: "<< indexi<< " indexj: " << indexj<<std::endl;
-    for(auto obs1 : Framebuf[indexi].obs)
+    for(int i=0;i< Framebuf[indexi].obs.size();i++)
     {
-        for(auto obs2 : Framebuf[indexj].obs)
+        for(int j=0;j< Framebuf[indexj].obs.size();j++)
         {
-            if(obs1.ptindex == obs2.ptindex&&(obs1.triangulated== iftriangulated)&&(obs2.triangulated == false)) // observe the same untriangulated point
+            if(Framebuf[indexi].obs[i].ptindex == Framebuf[indexj].obs[j].ptindex &&
+                    (Framebuf[indexi].obs[i].triangulated== iftriangulated) &&
+                    (Framebuf[indexj].obs[j].triangulated == false)) // observe the same untriangulated point
             {
-                Point2f point1(obs1.coordinate[0],obs1.coordinate[1]);
-                Point2f point2(obs2.coordinate[0],obs2.coordinate[1]);
+                Point2f point1(Framebuf[indexi].obs[i].coordinate[0],Framebuf[indexi].obs[i].coordinate[1]);
+                Point2f point2(Framebuf[indexj].obs[j].coordinate[0],Framebuf[indexj].obs[j].coordinate[1]);
                 points1.push_back(point1);
                 points2.push_back(point2);
                 pair<pixel*,pixel*> matchpair;
-                matchpair.first = &obs1;
-                matchpair.second = &obs2;
+                matchpair.first = &(Framebuf[indexi].obs[i]);
+                matchpair.second = &(Framebuf[indexj].obs[j]);
                 matchpairlist.push_back(matchpair);
                 break;
             }
@@ -676,7 +678,13 @@ bool BALProblem::epnp(const int referenceindex)
     for(auto p2d : matchpairlist){
         points1_3d.push_back(Point3f(p2d.first->p3d->xyz(0),p2d.first->p3d->xyz(1),p2d.first->p3d->xyz(2)));
     }
-    solvePnP(points1_3d,points2,K,Mat(),r,t,false,cv::SOLVEPNP_EPNP);
+//    solvePnP(points1_3d,points2,K,Mat(),r,t,false,cv::SOLVEPNP_EPNP);
+//
+    Mat R;
+//    cv::Rodrigues(r,R);
+//    std::cout<<"estimated R and t:"<<R<<std::endl;
+//    std::cout<<t<<std::endl;
+
 
     solvePnPRansac( points1_3d, points2,
                     K, Mat(),
@@ -684,8 +692,11 @@ bool BALProblem::epnp(const int referenceindex)
                     false, 100,
                     8.0, 0.99,
                     mask,SOLVEPNP_ITERATIVE );
-    Mat R;
     cv::Rodrigues(r,R);
+    std::cout<<"estimated R and t:"<<R<<std::endl;
+    std::cout<<t<<std::endl;
+
+    std::cout<<"gt rotation:"<< Framebuf[referenceindex+1].extrinsic.block<3,3>(0,0)<<std::endl;
 
     Framebuf[referenceindex+1].noisyextrinsic.block<3,3>(0,0) = MatdtoMatrix3d(R);
     Framebuf[referenceindex+1].noisyextrinsic.block<3,1>(0,3) = MatdtoVector3d(t);
@@ -706,7 +717,7 @@ bool BALProblem::epnp(const int referenceindex)
 
     triangulation(points1, points2, R, t, K, triangulatedPoints,newmatchpairlist);
 
-    verifytriangulation(points1, points2, R, t, K, triangulatedPoints,matchpairlist,mask);
+    verifytriangulation(points1, points2, R, t, K, triangulatedPoints,newmatchpairlist,mask);
 
     for(int i=0;i<triangulatedPoints.size();i++)
     {
@@ -717,11 +728,13 @@ bool BALProblem::epnp(const int referenceindex)
         addpt.xyz    = toVector3d(triangulatedPoints[i]);
         addpt.normal = Vector3d(0,0,1); // to be added;
         addpt.pindex = 0;//to be added;
+        addpt.obs.push_back(newmatchpairlist[i].first);  // add two observations to the p3d
+        addpt.obs.push_back(newmatchpairlist[i].second);
         pcbuf.push_back(addpt);
         matchpairlist[i].first->p3d = &(pcbuf.back());
         matchpairlist[i].second->p3d = &(pcbuf.back());
     }
-
+    processedframe +=1;
     return true;
 }
 
@@ -730,5 +743,66 @@ void BALProblem::verifytriangulation( const vector< Point2f >& pts2d_1,
                           const Mat& R, const Mat& t, const Mat& K,
                           const vector< Point3f >& points,vector<pair <pixel*, pixel*>> matchpairlist, Mat& mask)
 {
+    return;
+}
+
+
+void BALProblem::preprocess()
+{
+    delete[] point_index_;
+    delete[] camera_index_;
+    delete[] observations_;
+    delete[] parameters_;
+
+    num_observations_ = 0;
+    num_parameters_ = 6 * processedframe + 6 * pcbuf.size(); // here we don't optimize the intrinsic
+    for(int i=0;i<Framebuf.size();i++)
+    {
+        for(int j=0;j<Framebuf[i].obs.size();j++)
+        {
+            if(Framebuf[i].obs[j].triangulated == true) num_observations_++;
+        }
+    }
+
+    point3d = new double[3*num_points_];
+    normal3d = new double[3*num_points_];
+    point_index_ = new int[num_observations_];
+    camera_index_ = new int[num_observations_];
+    observations_ = new double[3 * num_observations_];
+    parameters_ = new double[num_parameters_];
+    int observations_index =0;
+    for(int i=0;i<processedframe;i++){
+        Eigen::Matrix4d pose = Framebuf[i].noisyextrinsic;
+        Eigen::AngleAxisd currentrot(pose.block<3,3>(0,0));
+        Eigen::Vector3d axisvec = currentrot.angle() * currentrot.axis();
+        std::cout<<"Pose "<<i<<" :\n"<<pose<<std::endl;
+        parameters_[i*6+0] = axisvec(0); // this is wrong, need to reset the rotaxis later
+        parameters_[i*6+1] = axisvec(1);
+        parameters_[i*6+2] = axisvec(2);
+        parameters_[i*6+3] = pose(0,3);
+        parameters_[i*6+4] = pose(1,3);
+        parameters_[i*6+5] = pose(3,3);
+    }
+
+    for(int i=0;i<pcbuf.size();i++)
+    {
+        parameters_[processedframe*6 + i*6]    = pcbuf[i].xyz[0];
+        parameters_[processedframe*6 + i*6 +1] = pcbuf[i].xyz[1];
+        parameters_[processedframe*6 + i*6 +2] = pcbuf[i].xyz[2];
+        parameters_[processedframe*6 + i*6 +3] = pcbuf[i].normal[0];
+        parameters_[processedframe*6 + i*6 +4] = pcbuf[i].normal[1];
+        parameters_[processedframe*6 + i*6 +5] = pcbuf[i].normal[2];
+
+        for(auto pix : pcbuf[i].obs)
+        {
+            camera_index_[observations_index] = pix->cameraindex;
+            point_index_[observations_index]  = i;
+            observations_[observations_index*3] = (double)pix->coordinate[0];
+            observations_[observations_index*3+1] = (double)pix->coordinate[1];
+            observations_[observations_index*3+2] = pix->angle;
+            observations_index++;
+        }
+    }
+
     return;
 }

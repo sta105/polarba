@@ -176,12 +176,13 @@ void SolveProblem(const char* filename, const BundleParams& params)
     int tripts = 0;
     for(int i=0;i<bal_problem.Framebuf[0].obs.size();i++)
     {
-        if(bal_problem.Framebuf[0].obs[i].triangulated == 1)tripts++;
+        if(bal_problem.Framebuf[0].obs[i].triangulated == true)tripts++;
     }
     std::cout<<"triangulated points in initialization: "<<tripts<<std::endl;
     for(int i=1;i<bal_problem.Framebuf.size();i++)
     {
         bal_problem.epnp(i);
+        bal_problem.preprocess();
     }
 
     // show some information here ...
@@ -196,21 +197,21 @@ void SolveProblem(const char* filename, const BundleParams& params)
 
 
     // add some noise for the intial value
-    bal_problem.Normalize();
-
-    if(!params.initial_ply.empty()){
-        bal_problem.WriteToPLYFile(params.initial_ply);
-    }
+//    bal_problem.Normalize();
+//
+//    if(!params.initial_ply.empty()){
+//        bal_problem.WriteToPLYFile(params.initial_ply);
+//    }
 
 
 //    bal_problem.Perturb(params.rotation_sigma, params.translation_sigma,
 //                        params.point_sigma,params.normal_sigma);
 
-    std::cout << "Normalization complete..." << std::endl;
-
-    if(!params.initial_ply.empty()){
-        bal_problem.WriteToPLYFile(params.noisy_ply);
-    }
+//    std::cout << "Normalization complete..." << std::endl;
+//
+//    if(!params.initial_ply.empty()){
+//        bal_problem.WriteToPLYFile(params.noisy_ply);
+//    }
     
     Problem problem;
     BuildProblem(&bal_problem, &problem, params);

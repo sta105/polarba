@@ -32,7 +32,7 @@ bool eigenprojector(const Vector3d normal,const Vector3d pt, int index , Frame& 
 
     std::default_random_engine generator;
     std::normal_distribution<double> pixelnoise(0.0,1.0);
-    std::normal_distribution<double> anglenoise(0.0,5.0);
+    std::normal_distribution<double> anglenoise(0.0,5.0/180.0 * M_PI);
     uv(0) += pixelnoise(generator);
     uv(1) += pixelnoise(generator);
 
