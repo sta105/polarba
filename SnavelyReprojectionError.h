@@ -18,16 +18,20 @@ public:
                     double* residuals)const{
         // camera[0,1,2] are the angle-axis rotation
         double predictions[3];
+        std::cout<<"compute the error here1!"<<std::endl;
         CamProjectionWithDistortion(camera, point, predictions);
+        std::cout<<"compute the error here2!"<<std::endl;
         residuals[0] = predictions[0] - observed_x;
+        std::cout<<"compute the error here3!"<<std::endl;
         residuals[1] = predictions[1] - observed_y;
-        residuals[2] = 10.0 *sin(predictions[2] - observed_angle);
+        std::cout<<"compute the error here4!"<<std::endl;
+        //residuals[2] = 10.0 *sin(predictions[2] - observed_angle);
 
         return true;
     }
 
     static ceres::CostFunction* Create(const double observed_x, const double observed_y, const double observed_angle){
-        return (new ceres::NumericDiffCostFunction<SnavelyReprojectionError,ceres::CENTRAL,3,9,6>(
+        return (new ceres::NumericDiffCostFunction<SnavelyReprojectionError,ceres::CENTRAL,2,6,6>(
             new SnavelyReprojectionError(observed_x,observed_y,observed_angle)));
     }
 

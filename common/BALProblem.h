@@ -88,14 +88,6 @@ public:
     std::vector<P3d> pcbuf;
 
 
-private:
-    void CameraToAngelAxisAndCenter(const double* camera,
-                                    double* angle_axis,
-                                    double* center)const;
-
-    void AngleAxisAndCenterToCamera(const double* angle_axis,
-                                    const double* center,
-                                    double* camera)const;
 
     int num_cameras_;
     int num_points_;
@@ -106,11 +98,22 @@ private:
     int* point_index_;
     int* camera_index_;
     double* observations_;
-    double* parameters_; 
+    double* parameters_;
     double* normal3d;
     double* point3d;
     bool ifinitialized = false;
     int processedframe = 0;
+
+private:
+    void CameraToAngelAxisAndCenter(const double* camera,
+                                    double* angle_axis,
+                                    double* center)const;
+
+    void AngleAxisAndCenterToCamera(const double* angle_axis,
+                                    const double* center,
+                                    double* camera)const;
+
+
 };
 
 void cameragenerator(const Vector3d center, const double rad, const Vector3d lastcam, double disparity, Vector3d& result);

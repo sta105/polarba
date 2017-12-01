@@ -54,7 +54,7 @@ public:
     arg.param("dense_linear_algebra_library", dense_linear_algebra_library, "eigen", "Options are: eigen and lapack.");
     
     
-    arg.param("ordering",ordering,"user","Options are: automatic, user.");
+    arg.param("ordering",ordering,"automatic","Options are: automatic, user.");
     arg.param("robustify", robustify, true, "Use a robust loss function");
     
 

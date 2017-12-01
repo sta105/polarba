@@ -78,15 +78,15 @@ void BuildProblem(BALProblem* bal_problem, Problem* problem, const BundleParams&
     // [u_1, u_2, ... u_n], where each u_i is two dimensional, the x 
     // and y position of the observation. 
     const double* observations = bal_problem->observations();
-
-    for(int i = 0; i < bal_problem->num_observations(); ++i){
+// bal_problem->num_observations()
+    for(int i = 0; i <bal_problem->num_observations(); ++i){
         CostFunction* cost_function;
 
         // Each Residual block takes a point and a camera as input 
         // and outputs a 3 dimensional Residual , the last observation is the azu angle
       
         cost_function = SnavelyReprojectionError::Create(observations[3*i + 0], observations[3*i + 1], observations[3*i + 2]);
-
+        //std::cout<< "obs: "<<observations[3*i + 0]<<" "<<observations[3*i + 1]<<" "<<observations[3*i + 2]<<std::endl;
         // If enabled use Huber's loss function. 
         LossFunction* loss_function = params.robustify ? new HuberLoss(1.0) : NULL;
 
@@ -96,6 +96,16 @@ void BuildProblem(BALProblem* bal_problem, Problem* problem, const BundleParams&
         double* camera = cameras + camera_block_size * bal_problem->camera_index()[i];
         double* point = points + point_block_size * bal_problem->point_index()[i];
 
+//        std::cout<< i <<" th obs"<<std::endl;
+//        std::cout<<" camera_block_size"<< camera_block_size<<std::endl;
+//        std::cout<<" point_block_size"<< point_block_size<<std::endl;
+//
+//        std::cout<<"offset camera: "<< bal_problem->camera_index_[i]<<std::endl;
+//        std::cout<<"offset point: "<< bal_problem->point_index_[i]<<std::endl;
+//        std::cout<<"offset camera: "<<bal_problem->camera_index()[i] <<std::endl;
+//        std::cout<<"offset point: "<< bal_problem->point_index()[i] <<std::endl;
+//        std::cout<< "camera: "<<camera[0]<<" "<<camera[1]<<" "<<camera[2]<<" "<<camera[3] << " "<<camera[4]<<" "<<camera[5]<<std::endl;
+//        std::cout<< "point: "<<point[0]<<" "<<point[1]<<" "<<point[2]<<" "<<point[3]<<" "<<point[4]<<" "<<point[5]<<std::endl;
      
         problem->AddResidualBlock(cost_function, loss_function, camera, point);
     }
@@ -104,7 +114,7 @@ void BuildProblem(BALProblem* bal_problem, Problem* problem, const BundleParams&
 
 void SolveProblem(const char* filename, const BundleParams& params)
 {
-    srand(time(NULL));
+    srand(62232325);
     BALProblem bal_problem(filename);
     bal_problem.Datagenerator(filename);
 
@@ -179,7 +189,7 @@ void SolveProblem(const char* filename, const BundleParams& params)
         if(bal_problem.Framebuf[0].obs[i].triangulated == true)tripts++;
     }
     std::cout<<"triangulated points in initialization: "<<tripts<<std::endl;
-    for(int i=1;i<bal_problem.Framebuf.size();i++)
+    for(int i=1;i+1<bal_problem.Framebuf.size();i++)
     {
         bal_problem.epnp(i);
     }

@@ -162,11 +162,13 @@ void BALProblem::Datagenerator(const std::string& filename)
 
     // randomizing some camera poses;
     Frame firstframe;
+    firstframe.camindex = 0;
     Framebuf.push_back(firstframe);
     Vector3d spherecenter(0,0,5.0);
     for(int i=0;i<num_cameras_-1;i++){
         Frame polarframe;
         Matrix4d currentpose;
+        polarframe.camindex = i+1;
         posegenerator(Framebuf.back().extrinsic, spherecenter , 5.0 , currentpose);
         polarframe.extrinsic = currentpose;
         Framebuf.push_back(polarframe);
@@ -721,7 +723,7 @@ bool BALProblem::epnp(const int referenceindex)
 
     for(int i=0;i<triangulatedPoints.size();i++)
     {
-        if(mask.at<int>(i,0) == 0)continue;
+        //if(mask.at<int>(i,0) == 0)continue;
         newmatchpairlist[i].first->triangulated = true;
         newmatchpairlist[i].second->triangulated = true;
         P3d addpt;
@@ -803,6 +805,7 @@ void BALProblem::preprocess()
             observations_index++;
         }
     }
-
+//    std::cout<<"final observations_index"<<observations_index<<std::endl;
+//    exit(0);
     return;
 }

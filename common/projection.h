@@ -52,6 +52,7 @@ bool eigenprojector(const Vector3d normal,const Vector3d pt, int index , Frame& 
 
     frame.tmppixel.coordinate[0] = int(uv(0));
     frame.tmppixel.coordinate[1] = int(uv(1));
+    frame.tmppixel.cameraindex = frame.camindex;
     frame.tmppixel.ptindex = index;
     frame.projectionvalid = true;
     return true;
